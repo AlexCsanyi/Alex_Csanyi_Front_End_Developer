@@ -37,6 +37,7 @@ nav {
   background: var(--clr-primary);
   height: 80px;
   position: fixed;
+  z-index: 1;
 }
 
 nav #brand {
@@ -241,5 +242,110 @@ header p {
   100% {
     transform: translate(0, 20px) rotate(45deg);
     opacity: 0;
+  }
+}
+
+/* ----- Projects Section ----- */
+h6 {
+  text-align: center;
+  color: var(--clr-light);
+  text-transform: uppercase;
+}
+
+.vertical {
+  margin-top: 40px;
+  border-left: 2px solid var(--clr-gray);
+  height: 70px;
+  position: absolute;
+  left: 50%;
+}
+
+.project {
+  height: 500px;
+}
+
+.project1 {
+  background: url(../images/Alex_Csanyi_Portfolio_Background_Image.jpg)
+    no-repeat;
+  background-size: cover;
+}
+
+.project1::after {
+  content: "timeless flow.";
+  font-size: 36px;
+  position: relative;
+  display: block;
+  top: 8%;
+  left: -60%;
+  right: 0;
+  bottom: 0;
+}
+
+.project2 {
+  background: url(../images/Alex_Csanyi_Portfolio_Background_Image_2.jpg)
+    no-repeat;
+  background-size: cover;
+}
+
+.project2::after {
+  content: "never again.";
+  font-size: 36px;
+  position: relative;
+  display: block;
+  top: 80%;
+  left: 90%;
+  right: 0;
+  bottom: 0;
+}
+
+.project3 {
+  background: url(../images/Alex_Csanyi_Portfolio_Background_Image_3.jpg)
+    no-repeat;
+  background-size: cover;
+}
+
+.project3::after {
+  content: "foreword.";
+  font-size: 36px;
+  position: relative;
+  display: block;
+  top: 80%;
+  left: -50%;
+  right: 0;
+  bottom: 0;
+}
+
+.project4 {
+  background: url(../images/Alex_Csanyi_Portfolio_Background_Image.jpg)
+    no-repeat;
+  background-size: cover;
+}
+
+.project4::after {
+  content: "new life starts here.";
+  font-size: 36px;
+  position: relative;
+  display: block;
+  top: 10%;
+  left: 90%;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .project {
+    width: 90% !important;
+    margin: 14px auto;
+  }
+
+  .vertical {
+    display: none;
+  }
+
+  .project1::after,
+  .project2::after,
+  .project3::after,
+  .project4::after {
+    display: none;
   }
 }
