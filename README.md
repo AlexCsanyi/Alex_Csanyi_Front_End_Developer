@@ -14,5 +14,6 @@ In this project beides HTML, CSS and javascript I used the following technologie
 - Bootstrap (css only) to create responsive layouts
 - GSAP TweenMax - to reveal navigation
 - WOW.js (and animate.css) to create scroll reveal animations
+- jQuery - for smooth scroll
 
 I picked Montserrat and Roboto Mono for my fonts - these font types have fast load times and i think go well with each other to give a minimalist, modern feel to the page.
