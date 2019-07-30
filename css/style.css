@@ -264,70 +264,70 @@ h6 {
   height: 500px;
 }
 
-.project1 {
+.project-1 {
   background: url(../images/Alex_Csanyi_Portfolio_Background_Image.jpg)
     no-repeat;
   background-size: cover;
 }
 
-.project1::after {
+.project-1::after {
   content: "timeless flow.";
   font-size: 36px;
   position: relative;
   display: block;
-  top: 8%;
-  left: -60%;
-  right: 0;
-  bottom: 0;
-}
-
-.project2 {
-  background: url(../images/Alex_Csanyi_Portfolio_Background_Image_2.jpg)
-    no-repeat;
-  background-size: cover;
-}
-
-.project2::after {
-  content: "never again.";
-  font-size: 36px;
-  position: relative;
-  display: block;
-  top: 80%;
+  top: 10%;
   left: 90%;
   right: 0;
   bottom: 0;
 }
 
-.project3 {
+.project-2 {
+  background: url(../images/Alex_Csanyi_Portfolio_Background_Image_2.jpg)
+    no-repeat;
+  background-size: cover;
+}
+
+.project-2::after {
+  content: "never again.";
+  font-size: 36px;
+  position: relative;
+  display: block;
+  top: 10%;
+  left: -90%;
+  right: 0;
+  bottom: 0;
+}
+
+.project-3 {
   background: url(../images/Alex_Csanyi_Portfolio_Background_Image_3.jpg)
     no-repeat;
   background-size: cover;
 }
 
-.project3::after {
-  content: "foreword.";
-  font-size: 36px;
-  position: relative;
-  display: block;
-  top: 80%;
-  left: -50%;
-  right: 0;
-  bottom: 0;
-}
-
-.project4 {
-  background: url(../images/Alex_Csanyi_Portfolio_Background_Image.jpg)
-    no-repeat;
-  background-size: cover;
-}
-
-.project4::after {
+.project-3::after {
   content: "new life starts here.";
   font-size: 36px;
   position: relative;
   display: block;
   top: 10%;
   left: 90%;
+  right: 0;
+  bottom: 0;
+}
+
+.project-4 {
+  background: url(../images/Alex_Csanyi_Portfolio_Background_Image.jpg)
+    no-repeat;
+  background-size: cover;
+}
+
+.project-4::after {
+  content: "new life starts here.";
+  font-size: 36px;
+  position: relative;
+  display: block;
+  top: 10%;
+  left: -90%;
   right: 0;
   bottom: 0;
 }
@@ -342,10 +342,10 @@ h6 {
     display: none;
   }
 
-  .project1::after,
-  .project2::after,
-  .project3::after,
-  .project4::after {
+  .project-1::after,
+  .project-2::after,
+  .project-3::after,
+  .project-4::after {
     display: none;
   }
 }
