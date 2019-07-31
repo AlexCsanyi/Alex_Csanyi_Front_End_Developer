@@ -2,7 +2,7 @@
 :root {
   --clr-primary: #18181e; /* rgba(24, 24, 30, 1); */
   --clr-light: #dec79b;
-  --clr-gray: rgba(255, 255, 255, 0.2);
+  --clr-gray: rgba(255, 255, 255, 0.562);
   --clr-yellow: #fac921;
   --font-primary: "Roboto Mono", monospace;
   --font-secondary: "Montserrat", sans-serif;
@@ -37,7 +37,7 @@ nav {
   background: var(--clr-primary);
   height: 80px;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 }
 
 nav #brand {
@@ -110,7 +110,7 @@ nav #menu li a:hover {
 }
 
 #resize {
-  z-index: 1;
+  z-index: 2;
   top: 0px;
   position: fixed;
   background: var(--clr-primary);
@@ -197,9 +197,28 @@ nav #menu li a:hover {
   justify-content: center;
 }
 
+#particleContainer {
+  background: var(--clr-primary);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  #particleContainer {
+    display: none;
+  }
+}
+
 header {
   border-left: var(--clr-light) 3px solid;
+  border-right: var(--clr-light) 3px solid;
   padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
 }
 
 header h1 {
