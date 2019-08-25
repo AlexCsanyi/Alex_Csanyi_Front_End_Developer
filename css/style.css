@@ -159,7 +159,7 @@ nav #menu li a:hover {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1150px) {
   #toggle {
     visibility: visible;
     opacity: 1;
@@ -184,7 +184,7 @@ nav #menu li a:hover {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1150px) {
   #resize {
     visibility: hidden;
   }
@@ -205,7 +205,7 @@ nav #menu li a:hover {
   z-index: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1150px) {
   #particleContainer {
     display: none;
   }
@@ -265,7 +265,7 @@ header p {
 }
 
 /* ----- Projects Section ----- */
-h6 {
+#project-section-header {
   text-align: center;
   color: var(--clr-light);
   text-transform: uppercase;
@@ -283,36 +283,28 @@ h6 {
   height: 500px;
 }
 
+.project-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5em;
+  position: absolute;
+}
+
+.project-header {
+  position: absolute;
+  z-index: 1;
+}
+
 .project-1 {
   background: url(../images/Alex_Csanyi_Project_1_Note_360.jpg) no-repeat;
   background-size: cover;
 }
 
-.project-1::after {
-  content: "Note 360.";
-  font-size: 36px;
-  position: relative;
-  display: block;
-  top: 10%;
-  left: 90%;
-  right: 0;
-  bottom: 0;
-}
-
 .project-2 {
   background: url(../images/Alex_Csanyi_Project_2_ToDo.jpg) no-repeat;
   background-size: cover;
-}
-
-.project-2::after {
-  content: "A better ToDo app.";
-  font-size: 36px;
-  position: relative;
-  display: block;
-  top: 10%;
-  left: -30%;
-  right: 0;
-  bottom: 0;
 }
 
 .project-3 {
@@ -321,32 +313,10 @@ h6 {
   background-size: cover;
 }
 
-.project-3::after {
-  content: "new life starts here.";
-  font-size: 36px;
-  position: relative;
-  display: block;
-  top: 10%;
-  left: 90%;
-  right: 0;
-  bottom: 0;
-}
-
 .project-4 {
   background: url(../images/Alex_Csanyi_Portfolio_Background_Image.jpg)
     no-repeat;
   background-size: cover;
-}
-
-.project-4::after {
-  content: "new life starts here.";
-  font-size: 36px;
-  position: relative;
-  display: block;
-  top: 10%;
-  left: -90%;
-  right: 0;
-  bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -359,16 +329,8 @@ h6 {
     display: none;
   }
 
-  .project-1::after,
-  .project-2::after,
-  .project-3::after,
-  .project-4::after {
-    position: relative;
-    text-align: center;
-    top: 40%;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .project-header-container {
+    align-self: center;
   }
 }
 
@@ -387,10 +349,18 @@ h6 {
   font-size: 60px;
   color: #fff;
   position: absolute;
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .see-more:hover {
-  color: var(--clr-light);
+  color: white;
+  text-decoration: none;
+  background-color: var(--clr-light);
+  border-radius: 2em;
 }
 
 .see-more-project-left {
@@ -591,7 +561,7 @@ textarea:focus {
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1150px) {
   .collab,
   #personal,
   #media,
