@@ -378,7 +378,8 @@ header p {
   transition: color ease-in-out 0.2s;
 }
 
-.see-more li a:hover::after {
+.see-more li a:hover::after,
+.see-more li a:focus::after {
   opacity: 1;
   transform: translateX(0%);
 }
@@ -582,4 +583,40 @@ textarea:focus {
     margin: 0 0 0 -22px;
     padding: 0;
   }
+}
+
+/*--------------- project page --------------- */
+
+.prev,
+.next {
+  color: #fff;
+}
+
+.prev {
+  text-align: left;
+}
+
+.next {
+  text-align: right;
+}
+
+.image-1 {
+  background: url(../images/Alex_Csanyi_Project_1_Note_360.jpg) no-repeat 50%
+    70%;
+}
+.image-2 {
+  background: url(../images/Alex_Csanyi_Project_2_ToDo.jpg) no-repeat 50% 70%;
+}
+
+.project-nav ion-icon {
+  color: var(--clr-light);
+  font-size: 1rem;
+  position: relative;
+  top: 3px;
+}
+
+.project-nav:hover,
+.project-nav:focus {
+  text-decoration: none;
+  cursor: pointer;
 }

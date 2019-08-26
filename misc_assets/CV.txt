@@ -1,5 +1,0 @@
-I'm a Manchester (UK) based front-end developer. I love creating new things with HTML5, CSS3 and Javascript.  I’m looking forward to bringing my passion for web development to a full-time role. Check out some of my project samples at alex.is or see my Github repositories at github.com/alexcsanyi.
-
-github.com/alexcsanyi
-
-linkedin.com/in/alex-csanyi
