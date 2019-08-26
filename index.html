@@ -30,18 +30,18 @@
     <div class="wrapper">
       <!-- Navbar Starts Here -->
       <nav>
-        <span id="brand">
+        <span id="brand" class="wow fadeInLeft">
           <a href="#hero">Alex Csanyi</a>
         </span>
         <ul id="menu">
-          <li>
+          <li class="wow fadeInRight" data-wow-delay="0.4s" >
             <a href="#hero">home<span>.</span></a>
           </li>
-          <li>
+          <li class="wow fadeInRight" data-wow-delay="0.6s">
             <a href="#work">work<span>.</span></a>
           </li>
-          <li>
-            <a href="#contact-alex-csanyi">contact<span>.</span></a>
+          <li class="wow fadeInRight" data-wow-delay="0.8s">
+            <a href="#take-me-here-for-contact">contact<span>.</span></a>
           </li>
         </ul>
 
@@ -60,7 +60,7 @@
             <a href="#work">work<span>.</span></a>
           </li>
           <li>
-            <a href="#take-me-here-for-contact">contact<span>.</span></a>
+            <a href="#contact-alex-csanyi">contact<span>.</span></a>
           </li>
         </ul>
       </div>
@@ -99,12 +99,23 @@
   
           <div class="col-lg-5 project project-1 wow fadeInUp">
             <div class="overlay">
-              <a class="see-more see-more-project-left" href="https://github.com/AlexCsanyi/Note-360" target="_blank">
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
-              <a class="see-more see-more-project-left-eye" href="https://note-360.web.app/signup" target="_blank">
-                  <ion-icon name="arrow-dropright-circle"></ion-icon>
-              </a>
+              <ul data-wow-delay="0.4s" class="see-more wow fadeInUp">
+                <li>
+                  <a data-content='Learn More' href="https://github.com/AlexCsanyi/toDoApp" target="_blank">
+                    <ion-icon name="add-circle"></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a data-content='Github' href="https://github.com/AlexCsanyi/Note-360" target="_blank">
+                    <ion-icon name="logo-github"></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a data-content='Demo' href="https://note-360.web.app/signup" target="_blank">
+                    <ion-icon name="arrow-dropright-circle"></ion-icon>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
   
@@ -121,12 +132,23 @@
   
             <div class="col-lg-5 project project-2 wow fadeInUp">
               <div class="overlay">
-                <a class="see-more see-more-project-right" href="https://github.com/AlexCsanyi/toDoApp" target="_blank">
-                  <ion-icon name="logo-github"></ion-icon>
-                </a>
-                <a class="see-more see-more-project-right-eye" href="https://responsivetodoapp.netlify.com" target="_blank">
-                  <ion-icon name="arrow-dropright-circle"></ion-icon>
-                </a>
+                <ul data-wow-delay="0.4s" class="see-more wow fadeInUp">
+                  <li>
+                    <a data-content='Learn More' href="https://github.com/AlexCsanyi/toDoApp" target="_blank">
+                      <ion-icon name="add-circle"></ion-icon>
+                    </a>
+                  </li>
+                  <li>
+                    <a data-content='Github' href="https://github.com/AlexCsanyi/toDoApp" target="_blank">
+                      <ion-icon name="logo-github"></ion-icon>
+                    </a>
+                  </li>
+                  <li>
+                    <a data-content='Demo' href="https://responsivetodoapp.netlify.com" target="_blank">
+                      <ion-icon name="arrow-dropright-circle"></ion-icon>
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
   
@@ -321,9 +343,6 @@
     <script>
       new WOW().init();
     </script>
-    <!--Tweenmax - to reveal navigation-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script src="./js/landingpage_load.js"></script>
     <!--jQuery - for smooth scroll and menu animation-->
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
