@@ -228,6 +228,7 @@ header h1 {
 }
 
 header p {
+  font-size: 24px;
   margin-bottom: 8px;
 }
 
@@ -443,6 +444,10 @@ header p {
 }
 
 /* ----- Contact Form ----- */
+#contact-alex-csanyi {
+  text-align: center;
+}
+
 #contact-form-header {
   color: var(--clr-light);
 }
