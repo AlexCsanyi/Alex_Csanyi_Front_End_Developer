@@ -232,6 +232,14 @@ header p {
   margin-bottom: 8px;
 }
 
+#headerDownloadCV {
+  color: #fff;
+}
+
+#headerDownloadCV:hover {
+  text-decoration: underline #fff;
+}
+
 .heroSocial {
   color: #fff;
   font-size: 4em;
