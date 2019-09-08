@@ -234,10 +234,11 @@ header p {
 
 #headerDownloadCV {
   color: #fff;
+  text-decoration: underline #fff;
 }
 
 #headerDownloadCV:hover {
-  text-decoration: underline #fff;
+  text-decoration: underline var(--clr-light);
 }
 
 .heroSocial {
@@ -253,7 +254,7 @@ header p {
 
 .heroSocial li a {
   color: #fff;
-  transition: color ease-in-out 1s;
+  transition: color ease-in-out 50ms;
 }
 
 .heroSocial li a:hover {
