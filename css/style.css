@@ -231,6 +231,42 @@ header p {
   margin-bottom: 8px;
 }
 
+.heroSocial {
+  color: #fff;
+  font-size: 4em;
+  list-style: none;
+  padding: 0;
+}
+
+.heroSocial li {
+  display: inline-block;
+}
+
+.heroSocial li a {
+  color: #fff;
+  transition: color ease-in-out 1s;
+}
+
+.heroSocial li a:hover {
+  text-decoration: none;
+  color: var(--clr-light);
+}
+
+@media (max-width: 768px) {
+  header {
+    margin-top: 60px;
+  }
+  header h1 {
+    font-size: 32px;
+  }
+  header p {
+    font-size: 16px;
+  }
+  .heroSocial {
+    font-size: 3rem;
+  }
+}
+
 /* ----- Scroll Down Animation ----- */
 .scroll-down {
   position: absolute;
@@ -264,6 +300,18 @@ header p {
   }
 }
 
+@media (max-width: 768px) {
+  .scroll-down {
+    bottom: 0px;
+  }
+}
+
+@media (max-width: 320px) {
+  .scroll-down {
+    display: none;
+  }
+}
+
 /* ----- Projects Section ----- */
 #project-section-header {
   text-align: center;
@@ -290,6 +338,7 @@ header p {
   width: 100%;
   height: 5em;
   position: absolute;
+  text-align: center;
 }
 
 .project-header {
