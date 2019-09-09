@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--Bootstrap 4 - to create responsive layouts-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--animate.css - to work with WOW.js in creating scroll reveal animations-->
+    <link rel="stylesheet" type="text/css" href="./css/animate.css" />
+    <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <!--IONICONS - icon library-->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"
+    ></script>
+    <!--My own css-->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Alex Csanyi | Front End Developer</title>
+  </head>
+</html>
+<body>
+  <div class="wrapper">
+    <!-- Navbar Starts Here -->
+    <nav>
+      <span id="brand" class="wow fadeInLeft">
+        <a href="./index.html">Alex Csanyi</a>
+      </span>
+      <ul id="menu">
+        <li class="wow fadeInRight" data-wow-delay="0.4s">
+          <a href="./index.html">home<span>.</span></a>
+        </li>
+      </ul>
+      <div id="toggle">
+        <div class="span">menu</div>
+      </div>
+    </nav>
+
+    <div id="resize">
+      <div class="close-btn">close</div>
+      <ul id="menu">
+        <li>
+          <a href="./index.html">home<span>.</span></a>
+        </li>
+      </ul>
+    </div>
+    <!-- Navbar Ends Here -->
+
+    <div class="whitespace-mobile-visible"></div>
+
+    <!-- Hero Section Start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 about wow fadeInUp"></div>
+            <div class="col-lg-7" id="aboutText">
+                <h3 class="wow fadeInUp title" data-wow-delay="1.2s">About me.</h3><br>
+                <p class="wow fadeInUp">
+                    Living with passion is what I strictly adhere to. “Always do what you love” how much ever hackneyed this sounds it holds absolutely true. That's why I travel a lot. Not for the sole reason of “loving” to travel but it helps me to get rid of the world and escape into a different dimension of my own. As I am a travel freak I love freezing the moments I relish. The art of capturing photos is something I am always fascinated by.
+                </p>
+                <p class="wow fadeInUp" data-wow-delay="0.2s">
+                    I am a continuous learner. Learning for me equates to exploring new ideas and growing as an individual. I just cannot imagine my life devoid of designing. I freely express my creativity and imagination by designing.
+                </p>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+    <!-- Hero Section End -->
+
+    <div class="whitespace"></div>
+
+    <!-- Footer Starts Here -->
+    <footer>
+      <div class="container">
+        <br /><br />
+
+        <div class="collab">
+          <div class="row">
+            <div class="col-lg-12">
+              <p class="wow fadeInUp">
+                You can download my CV or connect with me if you want to get in
+                touch
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="hr">
+          <div class="row"></div>
+        </div>
+
+        <br /><br />
+
+        <div class="info">
+          <div class="row">
+            <div class="col-lg-4" id="personal">
+              <p class="wow fadeInUp">Download CV</p>
+              <h4 class="wow fadeInUp" data-wow-delay="0.2s">
+                <a
+                  href="./misc_assets/Alex Csanyi CV 2019.pdf"
+                  download=""
+                  target="_blank"
+                >
+                  <ion-icon
+                    id="download-cv-icon"
+                    name="cloud-download"
+                  ></ion-icon>
+                </a>
+              </h4>
+              <br /><br />
+            </div>
+
+            <div class="col-lg-4" id="address">
+              <p class="wow fadeInUp">Find me</p>
+              <h4 class="wow fadeInUp" data-wow-delay="0.4s">
+                53° 29' 2.2524'' N : 2° 14' 40.7184'' W
+              </h4>
+              <br /><br />
+            </div>
+
+            <div class="col-lg-4" id="media">
+              <p class="wow fadeInUp">follow me</p>
+
+              <ul>
+                <li id="linkedin" class="wow fadeInUp" data-wow-delay="0.4s">
+                  <a href="www.linkedin.com/in/alex-csanyi" target="_blank"
+                    >li</a
+                  >
+                </li>
+                <li id="github" class="wow fadeInUp" data-wow-delay="0.6s">
+                  <a href="https://github.com/AlexCsanyi" target="_blank">gh</a>
+                </li>
+                <li id="twitter" class="wow fadeInUp" data-wow-delay="0.8s">
+                  <a href="https://twitter.com/AlexCsanyi" target="_blank"
+                    >tw</a
+                  >
+                </li>
+              </ul>
+
+              <br /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Ends Here -->
+
+    <!--WOW.js - to create scroll reveal animations-->
+    <script src="./js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <!--jQuery - for smooth scroll and menu animation-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/smoothScroll.js"></script>
+  </div>
+</body>

@@ -197,7 +197,7 @@ nav #menu li a:hover {
   justify-content: center;
 }
 
-#particleContainer {
+.heroParticles {
   background: var(--clr-primary);
   position: absolute;
   left: 50%;
@@ -714,5 +714,24 @@ textarea:focus {
 
   .next {
     margin-bottom: 30px;
+  }
+}
+
+/* -------------  About Page ---------- */
+.about {
+  height: 420px;
+  background: url(../images/about_img.png) center;
+}
+
+#aboutText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 990px) {
+  #aboutText {
+    text-align: center;
   }
 }
