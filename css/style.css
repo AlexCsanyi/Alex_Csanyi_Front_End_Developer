@@ -723,6 +723,29 @@ textarea:focus {
   background: url(../images/about_img.png) center;
 }
 
+.tooltiptext {
+  visibility: hidden;
+  background-color: var(--clr-primary);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 30%;
+  left: 50%;
+  margin-left: -100px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.about:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 #aboutText {
   display: flex;
   justify-content: center;
