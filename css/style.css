@@ -544,6 +544,7 @@ textarea:focus {
 .hr {
   background: var(--clr-gray);
   height: 1px;
+  display: block;
 }
 
 .info h4 {
@@ -719,8 +720,8 @@ textarea:focus {
 
 /* -------------  About Page ---------- */
 .about {
-  height: 420px;
-  background: url(../images/about_img.png) center;
+  height: 580px;
+  background: url(../images/about_img.png) center no-repeat;
 }
 
 .tooltiptext {
@@ -751,6 +752,20 @@ textarea:focus {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
+}
+
+.decor-line-break {
+  display: block;
+  height: 1px;
+  width: 80%;
+  margin-bottom: 10px;
+  border-bottom: var(--clr-gray) 1px solid;
+}
+
+.quote {
+  color: var(--clr-light);
+  text-align: center;
 }
 
 @media (max-width: 990px) {
