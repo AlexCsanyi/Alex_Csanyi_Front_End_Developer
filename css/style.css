@@ -773,3 +773,35 @@ textarea:focus {
     text-align: center;
   }
 }
+
+/*--------------- Blog Post Page --------------- */
+
+.blog-post-img {
+  width: 100%;
+}
+
+.italic-title {
+  font-style: italic;
+  margin: 0;
+}
+
+.post-container {
+  margin: 0;
+}
+
+.post {
+  display: grid;
+  max-width: 1680px;
+  margin: 200px auto;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-gap: 10px 30px;
+}
+
+.post > * {
+  grid-column: 2 / -2;
+}
+
+.post > figure {
+  margin: 5px;
+  grid-column: 1 / -1;
+}
