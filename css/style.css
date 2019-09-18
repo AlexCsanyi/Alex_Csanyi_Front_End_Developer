@@ -602,8 +602,8 @@ textarea:focus {
   padding-top: 6px;
 }
 
-#personal h4 a {
-  color: #fff;
+#personal h4 {
+  padding-top: 6px;
 }
 
 #personal h4 a:hover {
@@ -780,21 +780,21 @@ textarea:focus {
   width: 100%;
 }
 
-.italic-title {
-  font-style: italic;
-  margin: 0;
-}
-
-.post-container {
-  margin: 0;
+.main-italic-title {
+  font: var(--font-secondary);
+  margin-top: 90px;
+  text-align: center;
+  font-size: 36px;
 }
 
 .post {
   display: grid;
   max-width: 1680px;
-  margin: 200px auto;
+  margin: 0 auto;
   grid-template-columns: 1fr 10fr 1fr;
   grid-gap: 10px 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .post > * {
@@ -804,4 +804,55 @@ textarea:focus {
 .post > figure {
   margin: 5px;
   grid-column: 1 / -1;
+}
+
+figcaption {
+  font-size: 10px;
+  text-align: center;
+}
+
+.post > blockquote {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 36px;
+  font-style: italic;
+  margin: o;
+}
+
+.tip {
+  padding: 10px;
+  align-self: center;
+}
+
+.tip-left {
+  grid-column: 1 / span 1;
+  text-align: right;
+  border-right: 2px solid var(--clr-yellow);
+}
+
+.tip-right {
+  grid-column: span 1 / -1;
+  text-align: left;
+  border-left: 2px solid var(--clr-yellow);
+}
+
+@media (max-width: 620px) {
+  .tip-left {
+    grid-column: 2 / -2;
+    text-align: left;
+    border-top: 2px solid var(--clr-yellow);
+    border-bottom: 2px solid var(--clr-yellow);
+    border-right: none;
+    align-self: baseline;
+    padding: 0;
+  }
+  .tip-right {
+    grid-column: 2 / -2;
+    text-align: left;
+    border-top: 2px solid var(--clr-yellow);
+    border-bottom: 2px solid var(--clr-yellow);
+    border-left: none;
+    align-self: baseline;
+    padding: 0;
+  }
 }
