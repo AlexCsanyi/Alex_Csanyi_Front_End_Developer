@@ -776,6 +776,10 @@ textarea:focus {
 
 /*--------------- Blog Landing Page --------------- */
 
+#blog-hero-section {
+  text-align: center;
+}
+
 .wall {
   padding-top: 100px;
   text-align: center;
