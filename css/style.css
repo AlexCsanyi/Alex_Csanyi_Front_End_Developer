@@ -838,7 +838,7 @@ textarea:focus {
   width: 100%;
 }
 
-.main-italic-title {
+.main-title {
   font: var(--font-secondary);
   margin-top: 90px;
   text-align: center;
