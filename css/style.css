@@ -611,6 +611,7 @@ textarea:focus {
 }
 
 #download-cv-icon {
+  color: #fff;
   font-size: 32px;
   transition: color 0.5s ease-in-out;
 }
@@ -654,6 +655,27 @@ textarea:focus {
 .next,
 .center {
   text-align: right;
+}
+
+.project-page-links {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
+
+.project-page-links li {
+  display: inline-block;
+  font-size: 32px;
+}
+
+.project-page-links li a {
+  color: #fff;
+  transition: all 1s ease-in-out;
+}
+
+.project-page-links li a:hover {
+  text-decoration: none;
+  color: var(--clr-light);
 }
 
 .image-1 {
