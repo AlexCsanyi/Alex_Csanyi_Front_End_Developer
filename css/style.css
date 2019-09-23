@@ -678,15 +678,15 @@ textarea:focus {
   color: var(--clr-light);
 }
 
-.image-1 {
-  background: url(../images/todoapp_project_2_main.png);
-  background-size: cover;
+.project-1-image-1 {
+  background: url(../images/note360_project_1_main.png);
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
 }
-.image-2 {
-  background: url(../images/todoapp_project_2_tracker.png);
-  background-size: cover;
+.project-1-image-2 {
+  background: url(../images/note360_project_1_signup.png);
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
