@@ -679,11 +679,30 @@ textarea:focus {
 }
 
 .image-1 {
-  background: url(../images/Alex_Csanyi_Project_1_Note_360.jpg) no-repeat 50%
-    70%;
+  background: url(../images/todoapp_project_2_main.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .image-2 {
-  background: url(../images/Alex_Csanyi_Project_2_ToDo.jpg) no-repeat 50% 70%;
+  background: url(../images/todoapp_project_2_tracker.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.project-2-image-1 {
+  background: url(../images/todoapp_project_2_main.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.project-2-image-2 {
+  background: url(../images/todoapp_project_2_tracker.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .project-3-image-1 {
