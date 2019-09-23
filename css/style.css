@@ -367,7 +367,7 @@ header p {
 }
 
 .project-3 {
-  background: url(../images/Alex_Csanyi_Portfolio_Background_Image_3.jpg)
+  background: url(../images/RBDream_hero_project_3.jpg)
     no-repeat;
   background-size: cover;
 }
@@ -706,15 +706,15 @@ textarea:focus {
 }
 
 .project-3-image-1 {
-  background: url(../images/Derkestai_project_3_HOME.png);
-  background-size: cover;
+  background: url(../images/RBDream_project_3_main.png);
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .project-3-image-2 {
-  background: url(../images/Derkestai_project_3_CONTACT.png);
-  background-size: cover;
+  background: url(../images/RBDream_project_3_blogpost.png);
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
