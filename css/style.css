@@ -367,8 +367,7 @@ header p {
 }
 
 .project-3 {
-  background: url(../images/RBDream_hero_project_3.jpg)
-    no-repeat;
+  background: url(../images/RBDream_hero_project_3.jpg) no-repeat;
   background-size: cover;
 }
 
@@ -886,6 +885,11 @@ textarea:focus {
   font-size: 36px;
 }
 
+.subtitle {
+  font: var(--font-secondary);
+  text-align: center;
+}
+
 .post {
   display: grid;
   max-width: 1680px;
@@ -933,6 +937,14 @@ figcaption {
   grid-column: span 1 / -1;
   text-align: left;
   border-left: 2px solid var(--clr-yellow);
+}
+
+.no-decoration-list {
+  list-style: none;
+}
+
+.list-italic {
+  font-style: italic;
 }
 
 @media (max-width: 620px) {
