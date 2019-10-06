@@ -840,8 +840,12 @@ textarea:focus {
   margin: 0 0 24px 0;
   padding: 12px;
   background: #1e1e1e;
-  cursor: pointer;
   transition: all 200ms;
+}
+
+.wall-item > a {
+  display: block;
+  margin-top: auto;
 }
 
 .wall-item:hover {
@@ -864,6 +868,21 @@ textarea:focus {
   text-decoration-line: underline;
   margin-bottom: 10px;
   padding-bottom: 0px;
+}
+
+.blog-link {
+  align-self: center;
+  background-color: var(--clr-primary);
+  color: #fff;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  width: 50%;
+}
+
+.blog-link:hover {
+  background-color: var(--clr-light);
+  color: var(--clr-primary);
+  text-decoration: none;
 }
 
 @media (max-width: 480px) {
