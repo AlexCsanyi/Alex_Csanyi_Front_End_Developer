@@ -967,6 +967,11 @@ figcaption {
 }
 
 @media (max-width: 620px) {
+  .post {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
   .tip-left {
     grid-column: 2 / -2;
     text-align: left;
