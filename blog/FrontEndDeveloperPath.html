@@ -11,6 +11,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <!--animate.css - to work with WOW.js in creating scroll reveal animations-->
+    <link rel="stylesheet" type="text/css" href="../css/animate.css" />
     <!--Google Fonts-->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono&display=swap"
@@ -27,8 +29,10 @@
     ></script>
     <!--My own css-->
     <link rel="stylesheet" href="../css/style.css" />
+
     <title>Alex | Front End Developer Path</title>
   </head>
+  <body>
   <div class="main-container">
     <!-- NAV START -->
     <nav>
@@ -219,4 +223,19 @@
     </footer>
     <!-- FOOTER END -->
   </div>
+
+    <!--WOW.js - to create scroll reveal animations-->
+    <script src="../js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <!--jQuery - for smooth scroll and menu animation-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/smoothScroll.js"></script>
+  </body>
 </html>
