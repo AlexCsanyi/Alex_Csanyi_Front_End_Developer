@@ -966,6 +966,11 @@ figcaption {
   font-style: italic;
 }
 
+.step-backward {
+  border: solid #fff 1px;
+  padding: 3px;
+}
+
 @media (max-width: 620px) {
   .post {
     grid-template-columns: 1fr;
