@@ -975,6 +975,11 @@ figcaption {
   padding: 3px;
 }
 
+.title-underline {
+  border-top: 2px solid #fff;
+  width: 55px;
+}
+
 @media (max-width: 620px) {
   .post {
     grid-template-columns: 1fr;
