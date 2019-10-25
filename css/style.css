@@ -928,6 +928,10 @@ textarea:focus {
   grid-column: 1 / -1;
 }
 
+img {
+  max-width: 100%;
+}
+
 figcaption {
   font-size: 10px;
   text-align: center;
