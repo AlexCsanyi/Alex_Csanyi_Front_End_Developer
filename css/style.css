@@ -889,6 +889,12 @@ textarea:focus {
   .wall-item {
     padding: 0;
   }
+
+  .blog-link {
+    margin-bottom: 10px;
+    background-color: var(--clr-light);
+    color: var(--clr-primary);
+  }
 }
 
 /*--------------- Blog Post Page --------------- */
