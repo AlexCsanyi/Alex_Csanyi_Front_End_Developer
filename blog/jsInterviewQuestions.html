@@ -169,12 +169,53 @@
         <p>
           So in short algorithm speed isn't measured in seconds, but in growth of the number of operations. When we refer to the Big O Notation we talk about how quickly the run time of an algorithm increases as the size of the input increases. O(log n) is faster than O(n) but the difference grows significantly with the growth of the number of items.
         </p>
-        <section>
-            <p>
-            Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
-            </p>
-            <p>See you next time!</p>
-        </section>
+        <br>
+      <h5>
+        What is DOM?
+      </h5>
+      <span class="title-underline"></span>
+      <p>
+        To answer this question instead of me trying to re-invent the wheel - I will refer to MDN for their explanation of the DOM; the link is available under the next paragraph.
+      </p>
+      <p style="font-style: italic;">
+        "The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web. The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style,and content. The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.
+        <br>
+        A Web page is a document. This document can be either displayed in the browser window or as the HTML source. But it is the same document in both cases. The Document Object Model (DOM) represents that same document so it can be manipulated. The DOM is an object-oriented representation of the web page, which can be modified with a scripting language such as JavaScript.
+        <br>
+        Every element in a document—the document as a whole, the head, tables within the document, table headers,text within the table cells—is part of the document object model for that document, so they can all be accessed and manipulated using the DOM and a scripting language like JavaScript."
+      </p>
+      <p>
+        Source: MDN - 
+        <a 
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">
+          link
+        </a>
+      </p>
+      <p>I am just going to give a simple example of how the DOM can be manipulated. When the document is loaded this script creates a list element under the unordered list element and appends the text "Item 1" to that list element.</p>
+      <pre>
+        <code class="language-markup">
+          &lt;html>
+            &lt;head>
+              &lt;script>
+                window.onload = function() {
+                  var listElement = document.createElement("li");
+                  var listElementText = document.createTextNode("Item 1");
+                  listElement.appendChild(listElementText);
+                  document.body.ul.appendChild(listElement)
+                }
+              &lt;/script>
+            &lt;/head>
+            &lt;body>
+              &lt;ul>&lt;/ul>
+            &lt;/body>
+          &lt;/html></code>
+      </pre>
+      <section>
+        <p>
+        Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
+        </p>
+        <p>See you next time!</p>
+      </section>
     </article>
 
     <!-- FOOTER START -->
