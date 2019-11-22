@@ -367,7 +367,7 @@ header p {
 }
 
 .project-3 {
-  background: url(../images/RBDream_hero_project_3.jpg) no-repeat;
+  background: url(../images/rbdream_landing.jpg) center;
   background-size: cover;
 }
 
@@ -705,14 +705,14 @@ textarea:focus {
 }
 
 .project-3-image-1 {
-  background: url(../images/RBDream_project_3_main.png);
+  background: url(../images/rbdream_productgrid.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .project-3-image-2 {
-  background: url(../images/RBDream_project_3_blogpost.png);
+  background: url(../images/rbdream_mobile.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
