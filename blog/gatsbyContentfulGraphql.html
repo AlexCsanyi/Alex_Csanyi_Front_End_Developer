@@ -105,85 +105,110 @@
           A git service to version control your code. It'll also trigger your site to automatically deploy anytime you make code changes. I use Github, but you can also use GitLab and BitBucket.
         </p>
       </section>
-      <blockquote>
+        <blockquote>
+            <p>
+            "How you look at it is pretty much how you'll see it" <br>
+            - Rasheed Ogunlaru
+            </p>
+        </blockquote>
+        <figure>
+            <img
+            class="blog-post-img" 
+            src="/images/Blog/04.gatsbyContentfulGraphql/gatsbyContentfulGraphql.jpg" alt="Logos of Gatsby, Contentful and Netlify"/>
+            <figcaption>
+            Gatsby, Contentful, Netlify — "The Triple Threat" | Photo sourced from ITNEXT.io
+            </figcaption>
+        </figure>
         <p>
-          "How you look at it is pretty much how you'll see it" <br>
-          - Rasheed Ogunlaru
+            Let's get started!
         </p>
-      </blockquote>
-      <figure>
-        <img
-        class="blog-post-img" 
-        src="/images/Blog/04.gatsbyContentfulGraphql/gatsbyContentfulGraphql.jpg" alt="Logos of Gatsby, Contentful and Netlify"/>
-        <figcaption>
-          Gatsby, Contentful, Netlify — "The Triple Threat" | Photo sourced from ITNEXT.io
-        </figcaption>
-      </figure>
-      <p>
-        Let's get started!
-      </p>
-      <h6>01 - Creating a Gatsby site</h6>
-      <p>
-        We need to install the Gatsby command-line interface. Open your terminal and type in: <br>
-        <pre><code class="language-markup">npm install -g gatsby-cli</code></pre>
-      </p>
-      <p> This will work through the installation process and once it is finished we are ready to generate a new Gatsby project and open up Visual Studio Code. <br>
-        First thing first, let's move to the directory you want to store your projet in; for this we are going to use the "cd" command and the path to your folder in the terminal. <br>
-        Now let's type in:
-        <pre><code class="language-markup">gatsby new my-project-name https://github.com/gatsbyjs/gatsby-starter-hello-world</code></pre>
+        <h6>01 - Creating a Gatsby site</h6>
+        <p>
+            We need to install the Gatsby command-line interface. Open your terminal and type in: <br>
+            <pre><code class="language-markup">npm install -g gatsby-cli</code></pre>
+        </p>
+        <p> 
+            This will work through the installation process and once it is finished we are ready to generate a new Gatsby project and open up Visual Studio Code. <br>
+            First thing first, let's move to the directory you want to store your projet in; for this we are going to use the "cd" command and the path to your folder in the terminal. <br>
+            Now let's type in:
+            <pre><code class="language-markup">gatsby new my-project-name https://github.com/gatsbyjs/gatsby-starter-hello-world</code></pre>
         </p>
         <div class="tip tip-left">
             <p>you can use any of the 100s of available templates.</p>
         </div>
         <p>
-            What you see above is the "gatsby new" command, the project name and the url to the starter template we want to use. This will install all the modules that are necessary for the project to run. Once this is done, you can open up the directory in Visual Studio Code and start working on the project.    
+            What you see above is the "gatsby new" command, the project name and the url to the starter template we want to use. This will install all the modules that are necessary for the project to run. Once this is done, you can open up the directory in Visual Studio Code and start working on the project. <br>
+            In the package.json file you can see the available commands. We are going to use the develop command so we can see our project in the browser and see the modifications we make implemented.
+            So we need to type in the terminal the following:
         </p>
-      <ul class="no-decoration-list list-italic">
-        <li>ES6 (and later)</li>
-        <li>let & const</li>
-        <li>Closures</li>
-        <li>ES6 classes</li>
-        <li>Promises</li>
-        <li>Fetch API</li>
-        <li>Async Await</li>
-        <li>Arrow functions</li>
-        <li>ES6 modules (import and export)</li>
-        <li>Template literals (Template strings)</li>
-        <li>Spread operator</li>
-      </ul>
-      <h6>02 - Version control: Git and Github</h6>
-      <h6>03 - NPM or YARN</h6>
-      <ul class="no-decoration-list list-italic">
-        <li>Dev Dependencies and Dependencies</li>
-        <li>How package.json works</li>
-        <li>Semantic versioning</li>
-        <li>NPM scripts</li>
-      </ul>
-      <h6>04 - CLI (Command Line Interface) (and Linux)</h6>
-      <h6>05 - Bundlers: Webpack or Parcel</h6>
-      <h6>06 - CSS - focusing on the ability to build layouts from scratch</h6>
-      <ul class="no-decoration-list list-italic">
-        <li>Flex and CSS grid</li>
-      </ul>
-      <h6>
-        07 - One JavaScript framework: React / Angular / Vue / Ember - component based.
-      </h6>
+        <pre><code class="language-markup">npm run develop</code></pre>
+        <div class="tip tip-right">
+            <p>From here I'll use the integrated terminal in VS Code.</p>
+        </div>
+        <p>
+            Once it is finished we can go to localhost:8000 and see the site live. If you managed to follow along you should see a very simple html page saying "Hello World!" - that's it. Hurray, your very first Gatsby project successfully set up and is running!
+        </p>
+        <p>
+            There are a lot of files and directories installed, but most of our time will be spent in the src/pages folder. Currently all you should see in that folder is a single file called index.js - which is a React component rendering our home page.
+        </p>
+        <pre><code class="language-javascript">
+        import React from 'react'
 
-      <p>In addition to the above list there were a few other things mentioned in many cases - although not as frequently as the above listed ones. So I would say these are good to have and can be a great plus but maybe not top priority for you to learn to get your first job. These are:</p>
+        export default () => &lt;div>Hello World!&lt;/div>
+        </code></pre>
+        <h6>02 - Working with Gatsby pages</h6>
+        <p>
+            You can import React becasue it has already been installed as part of the Gatsby project and this is something we will have to do on every page in order for us to use JSX. <br>
+            Our default page is going to be index.js. To create another page we need to create a new file, let's call this about.js <br>
+            In this file we are going to write the following:
+        </p>
+        <pre><code class="language-javascript">
+        import React from 'react'
 
-      <ul class="no-decoration-list list-italic">
-        <li>Task Runners: Grunt or Gulp</li>
-        <li>Service Workers</li>
-        <li>Test framework: Mocha, Jasmine, Jest etc...</li>
-        <li>
-          Mobile development: React Native, Native scripts, Flutter, etc...
-        </li>
-      </ul>
+        const AboutPage = () => {
+            return (
+                &lt;div>
+                    &lt;h1>This is the about page&lt;/h1>
+                &lt;/div>
+            )
+        } 
+        
+        export default AboutPage
+        </code></pre>
+        <p>
+            Now we have access to this brand new page on "localhost:8000/about" - where as you can see we just need to type the name of the page file in the url.
+        </p>
+        <h6>03 - NPM or YARN</h6>
+        <ul class="no-decoration-list list-italic">
+            <li>Dev Dependencies and Dependencies</li>
+            <li>How package.json works</li>
+            <li>Semantic versioning</li>
+            <li>NPM scripts</li>
+         </ul>
+         <h6>04 - CLI (Command Line Interface) (and Linux)</h6>
+        <h6>05 - Bundlers: Webpack or Parcel</h6>
+        <h6>06 - CSS - focusing on the ability to build layouts from scratch</h6>
+        <ul class="no-decoration-list list-italic">
+            <li>Flex and CSS grid</li>
+        </ul>
+        <h6>
+            07 - One JavaScript framework: React / Angular / Vue / Ember - component based.
+        </h6>
 
-      <p>
-        Please remember that the above list is far from a full list of all the different technologies and tools you might find in Front End Developer job listings - but I have a specific type of position in mind and based on my research  these are the tools, topics and skills that are most often listed / required and questions during interviews are related to these often.
-      </p>
+        <p>In addition to the above list there were a few other things mentioned in many cases - although not as frequently as the above listed ones. So I would say these are good to have and can be a great plus but maybe not top priority for you to learn to get your first job. These are:</p>
 
+        <ul class="no-decoration-list list-italic">
+            <li>Task Runners: Grunt or Gulp</li>
+            <li>Service Workers</li>
+            <li>Test framework: Mocha, Jasmine, Jest etc...</li>
+            <li>
+            Mobile development: React Native, Native scripts, Flutter, etc...
+            </li>
+        </ul>
+
+        <p>
+            Please remember that the above list is far from a full list of all the different technologies and tools you might find in Front End Developer job listings - but I have a specific type of position in mind and based on my research  these are the tools, topics and skills that are most often listed / required and questions during interviews are related to these often.
+        </p>
       <section>
         <p>
           Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
