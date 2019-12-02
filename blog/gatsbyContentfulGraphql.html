@@ -159,24 +159,24 @@
         <h6>02 - Working with Gatsby pages</h6>
         <p>
             You can import React becasue it has already been installed as part of the Gatsby project and this is something we will have to do on every page in order for us to use JSX. <br>
-            Our default page is going to be index.js. To create another page we need to create a new file, let's call this about.js <br>
+            Our default page is going to be index.js. To create another page we need to create a new file, let's call this content.js where later we will import our content from Conentful. <br>
             In this file we are going to write the following:
         </p>
         <pre><code class="language-javascript">
         import React from 'react'
 
-        const AboutPage = () => {
+        const ContentPage = () => {
             return (
                 &lt;div>
-                    &lt;h1>This is the about page&lt;/h1>
+                    &lt;h1>This is the content page&lt;/h1>
                 &lt;/div>
             )
         } 
         
-        export default AboutPage
+        export default ContentPage
         </code></pre>
         <p>
-            Now we have access to this brand new page on "localhost:8000/about" - where as you can see we just need to type the name of the page file in the url.
+            Now we have access to this brand new page on "localhost:8000/content" - where as you can see we just need to type the name of the page file in the url.
         </p>
         <h6>03 - NPM or YARN</h6>
         <ul class="no-decoration-list list-italic">
