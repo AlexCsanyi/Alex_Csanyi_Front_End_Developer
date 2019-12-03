@@ -986,6 +986,10 @@ figcaption {
   width: 55px;
 }
 
+.main-colour-subtitle {
+  color: var(--clr-light);
+}
+
 @media (max-width: 620px) {
   .post {
     grid-template-columns: 1fr;

@@ -122,7 +122,7 @@
         <p>
             Let's get started!
         </p>
-        <h6>01 - Creating a Gatsby site</h6>
+        <h6 class="main-colour-subtitle">01 - Creating a Gatsby site</h6>
         <p>
             We need to install the Gatsby command-line interface. Open your terminal and type in: <br>
             <pre><code class="language-markup">npm install -g gatsby-cli</code></pre>
@@ -156,7 +156,7 @@
 
         export default () => &lt;div>Hello World!&lt;/div>
         </code></pre>
-        <h6>02 - Working with Gatsby pages</h6>
+        <h6 class="main-colour-subtitle">02 - Working with Gatsby pages</h6>
         <p>
             You can import React becasue it has already been installed as part of the Gatsby project and this is something we will have to do on every page in order for us to use JSX. <br>
             Our default page is going to be index.js. To create another page we need to create a new file, let's call this content.js where later we will import our content from Conentful. <br>
@@ -176,45 +176,185 @@
         export default ContentPage
         </code></pre>
         <p>
-            Now we have access to this brand new page on "localhost:8000/content" - where as you can see we just need to type the name of the page file in the url.
+            Now we have access to this brand new page on "localhost:8000/content" - where as you can see we just need to type forward slash "/" and the name of the page file in the url.
         </p>
-        <h6>03 - NPM or YARN</h6>
-        <ul class="no-decoration-list list-italic">
-            <li>Dev Dependencies and Dependencies</li>
-            <li>How package.json works</li>
-            <li>Semantic versioning</li>
-            <li>NPM scripts</li>
-         </ul>
-         <h6>04 - CLI (Command Line Interface) (and Linux)</h6>
-        <h6>05 - Bundlers: Webpack or Parcel</h6>
-        <h6>06 - CSS - focusing on the ability to build layouts from scratch</h6>
-        <ul class="no-decoration-list list-italic">
-            <li>Flex and CSS grid</li>
-        </ul>
-        <h6>
-            07 - One JavaScript framework: React / Angular / Vue / Ember - component based.
-        </h6>
-
-        <p>In addition to the above list there were a few other things mentioned in many cases - although not as frequently as the above listed ones. So I would say these are good to have and can be a great plus but maybe not top priority for you to learn to get your first job. These are:</p>
-
-        <ul class="no-decoration-list list-italic">
-            <li>Task Runners: Grunt or Gulp</li>
-            <li>Service Workers</li>
-            <li>Test framework: Mocha, Jasmine, Jest etc...</li>
-            <li>
-            Mobile development: React Native, Native scripts, Flutter, etc...
-            </li>
-        </ul>
-
+        <h6 class="main-colour-subtitle">03 - Linking Between Pages with Gatsby</h6>
         <p>
-            Please remember that the above list is far from a full list of all the different technologies and tools you might find in Front End Developer job listings - but I have a specific type of position in mind and based on my research  these are the tools, topics and skills that are most often listed / required and questions during interviews are related to these often.
+          Gatsby's built in way for linking between pages allows us to swap out conten instantaneously without going through a full page refresh. In order to achive this we need to import a named component at the top of our file, called Link from the gatsby npm module. like this:
         </p>
-      <section>
+        <pre><code class="language-javascript">import { Link } from 'gatsby'</code></pre>
         <p>
-          Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
+          Gatsby has already been installed in our project so we should be good to go, but if you want to double check just head over to the package.json file and gatsby should be listed as one of the dependencies. Now we have access to Link which is a React component, and when we use this there is a whole lot of optimisation going on in the background when we click on a link on the page, like pre-oading and therefore significantly increasing the speed. To use it all you have to type is very similar to how you would use a regular "a" tag in html.
         </p>
-        <p>See you next time!</p>
-      </section>
+        <pre><code class="language-javascript">
+        import React from 'react'
+        import { Link } from 'gatsby'
+
+        const ContentPage = () => {
+            return (
+                &lt;div>
+                    &lt;h1>This is the content page&lt;/h1>
+                    &lt;Link to='/'>This is a link to the home page&lt;/Link>
+                &lt;/div>
+            )
+        } 
+        
+        export default ContentPage
+        </code></pre>
+        <p>
+          As you can see the only real difference is that you have to use "to" instead of "href" as you would do with an "a" tag. Also if you are linking to an external page a standard anchor element is perfectly fine.
+        </p>
+        <h6 class="main-colour-subtitle">04 - Creating Shared Page Components</h6>
+        <p>
+          We are going to create a component that will be used on all of our pages, in this case just a simple title, but this could be a footer or a navigation component. So let's create a new folder in the "src" directory called "components" and in this folder let's create a new file called "sharedComponent.js".
+        </p>
+        <pre><code class="language-javascript">
+        import React from 'react'
+
+        const SharedComponent = () => {
+            return (
+                &lt;div>
+                    &lt;h1>I am a title and I will show up on every page&lt;/h1>
+                &lt;/div>
+            )
+        } 
+        
+        export default SharedComponent
+        </code></pre>
+        <p>
+          Now that we have our component in place we just need to import it in our pages, let's start on the content page we created earlier.
+        </p>
+        <pre><code class="language-javascript">
+        import React from 'react'
+        import { Link } from 'gatsby'
+        import SharedComponent from '../components/sharedComponent'
+
+        const ContentPage = () => {
+            return (
+                &lt;div>
+                    &lt;SharedComponent>&lt;/SharedComponent>
+                    &lt;h1>This is the content page&lt;/h1>
+                    &lt;Link to='/'>This is a link to the home page&lt;/Link>
+                &lt;/div>
+            )
+        } 
+        
+        export default ContentPage
+        </code></pre>
+        <p>
+          As you can see this is nothing Gatsby specific this is just basic React what we are doing here. Remember when you are typing up the path to the component it has to be relative to the file you are in,hence we used "../" to get to the components folder from the pages folder. Now you should see our newly created component rendered to the Content page. This is exactly what you would need to do on all the other pages.
+        </p>
+        <p>
+          All in all what is very important to remember is that when we are creating a React component that is not an entirely new page, it should not go in the "src/pages" directory, but should live in a seperate folder - the name of this folder is not important.
+        </p>
+        <h6 class="main-colour-subtitle">05 - Gatsby Data with GraphQL</h6>
+        <p>
+          Now we will go ahead and get dynamic data to our Gatsby site. Data can come from many sources when it is not directly typed out as JSX in our project, like we will see in this tutorial we will get the data from Contentful. This is one of the reasons Gatsby is so powerful; it allows us to generate static sites that are created using dynamic data from 3rd party data sources. The GraphQL API is provided to us by Gatsby.
+        </p>
+        <p>
+          First things first; let's go ahead and create a new file in the root system - it is important that is in the root directory of our project - and we have to call it "gatsby-config.js". Now we need to remember that it is a NodeJS file so we need to export a module. We will come back to this file in a bit.
+        </p>
+        <pre class="language-javascript"><code>module.exports = {}</code></pre>
+        <p>
+          Now we will also create an environment variable in the root of the project, called ".env.development", and in here we are going to declare our Key=Value pair: GATSBY_GRAPHQL_IDE=playground <br>
+          This will enable GraphQL playground support. Now we need to go the terminal and type in "npm install --save-dev env-cmd" which will install this very popular env-cmd npm package. <br>
+          So now inside package.json go to "scripts" and we need to change the "develop" script. Type in "env-cmd .env.development gatsby develop". So first it is going to load in the environment variable and then run the gatsby server.
+        </p>
+        <div class="tip tip-right">
+            <p>This is a cross-OS compatible approach</p>
+        </div>
+        <div class="tip tip-left">
+            <p>--save-dev becasue we only need this dependency in development.</p>
+        </div>
+        <pre><code class="language-markup">npm install --save-dev env-cmd</code></pre>
+        <p>
+          So now if you go to the GraphQL page you should see the playground. "localhost:8000___graphql" <br>
+          Now that this is in place we will go ahead and explore Contentful in the next section and once we are done with that - we will see how we can use GraphQL to dynamically render content from our CMS.
+        </p>
+        <h6 class="main-colour-subtitle">06 - Getting Started with Contentful</h6>
+        <p>
+          It is time to start connecting our CMS to our project. Go to conentful.com, create a free account - fill in all the basic account details, and when it comes to your "development platform" just choose JavaScript but honestly it doesn't matter at that much. After your account is created you can go through the tutorials if you wish, but for the purposes of this tutorial let's jump right into exploring content models. Now from the menu select "create space" - choose the free space option. We will name our space "My Space" - leave the default option "create an empty space" selected. Proceed to confirmation. Now we need to create a content model and content. In the conten model tab we are creating structured data - like a model for the author data with fields for the author's name, email and and profile picture. In the content tab we are creating actual instances of those models - so for example we create a profile for an author.
+        </p>
+        <p>
+          Ok, so now under content model let's click "create new model". We will name it "Post" - this will create an api identifier for us - which we will use later. We don't need to write a description.
+        </p>
+        <p>
+          Now that we have the content model, let's add our fields. Click "add field" and select "text" for our title. In the name field type "Title" - this will generate for us a field ID on the left hand side, which we will use in GraphQL. There are a few other options available to us, but we don't need these so let's click "create". Time to add our 2<sup>nd</sup> field; again pick "text" and name it "Slug". After this we need to add another field and for this we will pick the "date & time" option available to us. We'll name this "published date" - this again will get us the field ID. From here there is only one more field we must create and this will be a "rich text" where we will write our body of our content, so we'll simply call this "Body". With this in place we have our content model ready with 4 pieces of data. Now click save. 
+        </p>
+        <div class="tip tip-right">
+            <p>
+              A slug is the part of a URL which identifies a particular page on a website in an easy to read form. In other words, it’s the part of the URL that explains the page’s content. For this article, for example, the URL is https://yoast.com/slug, and the slug simply is ‘slug’.
+            </p>
+        </div>
+        <p>
+          It is time to head over to the content tab and let's start typing in the text we want in our post / content. Now with our model in place let's use it and click add "Post". Now we are on the editor page. We need to type the title "Contentful as CMS", the slug "contentful", the date and time and the body "this is my first contentful post". Click publish! This will change the status from draft to published and we will see this post on the content tab.
+        </p>
+        <p>
+          We have to now go to gatsbyjs.org and we will need to download a plugin called "gatsby-source-contentful".
+        </p>
+        <pre><code class="language-markup">npm install gatsby-source-contentful</code></pre>
+        <p>Time to go back to the "gatsby-config.js" file we created earlier on; and we will add a plugin.</p>
+        <pre class="language-javascript"><code>
+          module.exports = {
+            plugins: [
+              {
+                resolve: 'gatsby-source-contentful',
+                options: {
+                  spaceID: '',
+                  accessToken: ''
+                }
+              }
+            ]
+          }
+        </code></pre>
+        <p>
+          To get the space ID and the access token let's head back to our Contentful web-app and go to settings and down to API keys, here we'll have these available to us. This is sensitive data so to avoid this getting into our source code we will enter it in our .env.development file: <br>
+          CONTENTFUL_SPACE_ID=222222222 <br>
+          CONTENTFUL_ACCESS_TOKEN=22222ddddd22222ddddddd222ddddd <br>
+          Now we are ready to use these in our .env.development file
+        </p>
+        <pre class="language-javascript"><code>
+          module.exports = {
+            plugins: [
+              {
+                resolve: 'gatsby-source-contentful',
+                options: {
+                  spaceID: process.env.CONTENTFUL_SPACE_ID,
+                  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+                }
+              }
+            ]
+          }
+        </code></pre>
+        <p>
+          These few steps now allow us to source content from Contentful; and now we are ready move on to the next step and see how we can use the power of GraphQL.
+        </p>
+        <h6 class="main-colour-subtitle">07 - Rendering Contentful Posts</h6>
+        <p>
+          Now when we visit "localhost:8000/___graphql" we should see some new queries available to us. Ok let's set up our first query:
+        </p>
+        <pre class="language-graphql"><code>
+          query {
+            allContentfulBlogPost {
+              edges {
+                node {
+                  title
+                  slug
+                  publishedDate
+                }
+              }
+            }
+          }
+        </code></pre>
+        <p>
+          This will give us all those fields of our post, so the title, slug and published date. At this stage intentionally avoid querying the body field because there is a little more to that - but of course we will come back to it shortly. For the moment we are just going to change slightly our query.
+        </p>
+        <section>
+          <p>
+            Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
+          </p>
+          <p>See you next time!</p>
+        </section>
     </article>
 
     <!-- FOOTER START -->
