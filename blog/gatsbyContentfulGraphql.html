@@ -347,8 +347,48 @@
           }
         </code></pre>
         <p>
-          This will give us all those fields of our post, so the title, slug and published date. At this stage intentionally avoid querying the body field because there is a little more to that - but of course we will come back to it shortly. For the moment we are just going to change slightly our query.
+          This will give us all those fields of our post, so the title, slug and published date. At this stage intentionally avoid querying the body field because there is a little more to that - but of course we will come back to it shortly. For the moment we are just going to change slightly our query which will organise our posts in a descending order based on the date published. We only have one post but this will be a very useful adjustment when you start adding more of them.
         </p>
+        <pre class="language-graphql"><code>
+          query {
+            allContentfulBlogPost (
+              sort: {
+                fields: publishedDate,
+                order: DESC
+              }
+            ) {
+              edges {
+                node {
+                  title
+                  slug
+                  publishedDate(formatString: "MMM Do, YYYY")
+                }
+              }
+            }
+          }
+        </code></pre>
+        <p>
+          Another modification you'll see above is the way we are querying our date. By adding "MMM Do, YYYY" what we get back is a much more readable date format, e.g.: December 2nd, 2019. <br>
+          If we open up our content.js file we can now get things moving. You should have this now:
+        </p>
+        <pre><code class="language-javascript">
+        import React from 'react'
+        import { Link, graphql, useStaticQuery } from 'gatsby'
+        import SharedComponent from '../components/sharedComponent'
+
+        const ContentPage = () => {
+            return (
+                &lt;div>
+                    &lt;SharedComponent>&lt;/SharedComponent>
+                    &lt;h1>This is the content page&lt;/h1>
+                    &lt;Link to='/'>This is a link to the home page&lt;/Link>
+                &lt;/div>
+            )
+        } 
+        
+        export default ContentPage
+        </code></pre>
+        <p>We now have 2 new components imported at the top, "graphql" and "useStaticQuery".</p>
         <section>
           <p>
             Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
