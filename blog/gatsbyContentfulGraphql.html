@@ -388,7 +388,89 @@
         
         export default ContentPage
         </code></pre>
-        <p>We now have 2 new components imported at the top, "graphql" and "useStaticQuery".</p>
+        <p>
+          We now have 2 new components imported at the top, "graphql" and "useStaticQuery". With these in place we can write our queries in our component the following way. So inside our functional component, before our return function let's write the following:
+        </p>
+        <pre><code class="language-javascript">
+        const data = useStaticQuery(graphql`
+          query {
+            allContentfulBlogPost (
+              sort: {
+                fields: publishedDate,
+                order: DESC
+              }
+            ) {
+              edges {
+                node {
+                  title
+                  slug
+                  publishedDate(formatString: "MMM Do, YYYY")
+                }
+              }
+            }
+          }
+        `)
+        </code></pre>
+        <p>
+          After this we are now ready to render the data to our page, so let's implement this. We will simply map the posts to our page.
+        </p>
+        <pre><code class="language-javascript language-graphql language-jsx">
+        import React from 'react'
+        import { Link, graphql, useStaticQuery } from 'gatsby'
+        import SharedComponent from '../components/sharedComponent'
+
+        const ContentPage = () => {
+            const data = useStaticQuery(graphql`
+              query {
+                allContentfulBlogPost (
+                  sort: {
+                    fields: publishedDate,
+                    order: DESC
+                  }
+                ) {
+                  edges {
+                    node {
+                      title
+                      slug
+                      publishedDate(formatString: "MMM Do, YYYY")
+                    }
+                  }
+                }
+              }
+            `)
+
+            return (
+                &lt;div>
+                    &lt;SharedComponent>&lt;/SharedComponent>
+                    &lt;h1>This is the content page&lt;/h1>
+                    &lt;Link to='/'>This is a link to the home page&lt;/Link>
+                    &lt;ol>
+                      {data.allContentfulBlogPost.edges.map((edge) => {
+                        return(
+                          &lt;li>
+                            &lt;Link to={`/content/${edge.node.slug}`}>
+                              &lt;h2>{edge.node.title}&lt;/h2>
+                              &lt;p>{edge.node.publishedDate}&lt;/p>
+                            &lt;/Link>
+                          &lt;/li>
+                        )
+                      })}
+                    &lt;/ol>
+                &lt;/div>
+            )
+        } 
+        
+        export default ContentPage
+        </code></pre>
+        <p>
+          What you can see above in the return statement is us rendering an orderd list, and inside the list for each post we create a list element using a simple javascript map method. Basically we are returning each edge inside our query as an &lt;li> element. Inside we add a "Link" element and we route that to content/"slug" - we get our slug from the query. There we are using a "template literal" to achieve this. Within our Link element we return the title and the published date from our query for every post we create. In the next step we are going to tackle a big task and return the body of our post as well which will guarantee us that when we click the links we just created we can see what we wrote - at the moment that obvioulsy will not work as we haven't wired that up yet. Once we are done with that we will be ready to publish the site to Netlify.   
+        </p>
+        <div class="tip tip-right">
+            <p>
+              You can recognize a template literal when you see the "backticks": `` and inside you see dollar sign + curly braces: ${} 
+            </p>
+        </div>
+        <h6 class="main-colour-subtitle">08 - Dynamic Pages from Contentful</h6>
         <section>
           <p>
             Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
