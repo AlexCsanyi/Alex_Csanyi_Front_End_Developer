@@ -540,7 +540,91 @@
         export default Post
         </code></pre>
         <p>
-          In our query we are getting the slug as a variable and then graphql allows us to use equality to get just a single post based on the slug, we just stored as a variable, and return it.
+          In our query we are getting the slug as a variable and then graphql allows us to use equality to get just a single post based on the slug, we just stored as a variable, and return it. At this stage we are still only getting the title and the published date of each post and we are only rendering this data. The reason for this is that before we can render the body we need to make sure that a few more dependencies are installed.
+        </p>
+        <p>
+          We need to install our next dependency and in order to do that type in the following in the terminal
+        </p>
+        <pre class="language-markdown"><code>npm i @contentful/rich-text-react-renderer</code></pre>
+        <p>
+          We will then import this in our post.js file. Extend our query and get the "body{json}" and then we can render this with a simple function.
+        </p>
+        <pre class="language-javascript language-graphql"><code>
+        import React from 'react'
+        import { graphql } from 'gatsby'
+        import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+
+        export const query = graphql`
+          query($slug: String!) {
+            contentfulBlogPost(slug: {eq: $slug}) {
+              title
+              publishedDate(formatString: "MMM Do, YYYY")
+              body {
+                json
+              }
+            }
+          }
+        `
+
+        const Post = (props) => {
+          return (
+            &lt;div>
+              &lt;h1>{props.data.contentfulBlogPost.title}&lt;/h1>
+              &lt;p>{props.data.contentfulBlogPost.publishedDate}&lt;/p>
+              {documentToReactComponents(props.data.contentfulBlogPost.body.json)}
+            &lt;/div>
+          )
+        }
+
+        export default Post
+        </code></pre>
+        <p>
+          With these few small added steps there we have it, our content from Contentful is rendered to the page.
+        </p>
+        <p>
+          We will just need to do one more slight adjustment if we want to show assets as well in our posts, such as images. In order for us to do that we need to drill deeper in our graphql query. If you had back to Contentful and add an image as an asset, then you re-run the development server and go back to the graphql playground you will see a new field for that asset. Now we will see how to access that. Inside our Post component before the return statement let's focus on this step:
+        </p>
+        <pre class="language-javascript language-graphql"><code>
+        const options = {
+          renderNode: {
+            "embedded-asset-block": (node) => {
+              const alt = node.data.target.fields.title['en-US']
+              const url = node.data.target.fields.file['en-US'].url
+              return (
+                &lt;img>&lt;/img>
+              )
+            }
+          }
+        }
+        </code></pre>
+        <p>
+          In the above code we are just querying the node for the embedded asset and getting the data we need. What you have to pay attention to is that you might have a different locale(in our code it is "en-US"), and whatever you have you just need to make sure that it is the one you type. <br>
+          We then just return an img in our JSX and the alt and url we declared will be applied. After this another very important step is to use these options object as the second parameter in our documentToReactComponents method.
+        </p>
+        <pre class="language-javascript"><code>{documentToReactComponents(props.data.contentfulBlogPost.body.json), options}</code></pre>
+        <p>
+          That is it, with the above in place we have achieved our goal we set out to do at the beginning and now it is time to deploy our project to Netlify
+        </p>
+        <h6 class="main-colour-subtitle">09 - Deploying Your Gatsby Site</h6>
+        <p>
+          Create a build for your site <br>
+          In order to deploy, you need to do gatsby build, which will generate html files and javascript files inside your public folder.<br>
+          <br>
+          gatsby build<br>
+          Deploy using Drag and Drop
+          Once the public folder is regenerated, you can drag and drop it to the Netlify main page. It will automatically publish to a unique URL.<br>
+          <br>
+          New from Git<br>
+          If you’ve been committing all your latest changes to a Git repository, you can decide to connect that to Netlify. In the home page, there is a New site from Git button. Click that to start connecting to one of your repositories. Once that’s done, Netlify will attempt to deploy for the first time.<br>
+          <br>
+          Also, every time you commit to that repository in the future, Netlify will automatically deploy without you needing to drag and drop the site folder again!<br>
+          <br>
+          Contentful Automatic Deploy<br>
+          If you use Contentful to manage the content of your site, you can use the automatic deploy feature to Netlify. To do that, go to your Contentful space and click on Settings at the top, then Webhooks. Click on the button Add Webhook. There, you just need to enter the name and the URL.<br>
+          <br>
+          In order to get the URL, you need to go to Netlify and find the site you want to deploy to. Then, you click on Site Settings, then Build and Deploy. Find Build hooks on the page and click on Add build hook. Give it a name and click Save. That will generate a URL which should be used for your Contentful Webhook.<br>
+          <br>
+          That’s it! Once that’s done, every time you make a change in Contentful, it’ll automatically generate a deploy!
         </p>
         <section>
           <p>
