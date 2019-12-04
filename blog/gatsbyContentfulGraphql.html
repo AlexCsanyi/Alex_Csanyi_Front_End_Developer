@@ -471,6 +471,77 @@
             </p>
         </div>
         <h6 class="main-colour-subtitle">08 - Dynamic Pages from Contentful</h6>
+        <p>
+          We will now create a new page for each post we create dynamically and render the content of those posts to the page. We will have to create a new file called post.js where we set up how we want our body look like but the first step will be to create our "gatsby-node.js" file in the root folder of our project - we will use post.js as the path, so we will need to make sure we create this before we save our work - in the gatsby-node.js file we need to write the following:
+        </p>
+        <pre class="language-javascript language-graphql"><code>
+          const path = require('path')
+          
+          module.exports.createPages = async ({ graphql, actions }) => {
+            const {createPage} = actions
+            const postTemplate = path.resolve('.src/templates/post.js')
+            const res = await graphql(`
+              query {
+                allContentfulBlogPost {
+                  edges {
+                    node {
+                      slug
+                    }
+                  }
+                }
+              }
+            `)
+
+            res.data.allContentfulBlogPost.edges.forEach((edge) => {
+              createPage({
+                component: postTemplate,
+                path: `/content/${edge.node.slug}`,
+                context: {
+                  slug: edge.node.slug
+                }
+              })
+            })
+          }
+        </code></pre>
+        <div class="tip tip-left">
+            <p>See links:</p>
+            <a rel="noopener" rel="noreferrer" target="_blank" href="https://www.gatsbyjs.org/docs/node-apis/#createPages">createPages</a> <br>
+            <a rel="noopener" rel="noreferrer" target="_blank" href="https://nodejs.org/api/path.html">path</a>
+        </div>
+        <p>
+          Above mainly we just copy and paste the code from the NodeJS documentation and we just make small adjustments to fulfill our needs. If you want to read more in detail on these i recommend visiting the documentation and looking up "path" and "createPages". Once we are set with this it is time to create the templates folder and the post.js template file - which we are referring to in our gatsby-node.js file.
+        </p>
+        <p>
+          So go ahead and create a new folder, called templates in our "src" directory. In there create a new file, named post.js <br>
+          This file will serve as the template for all the posts we create in Contentful. In the next block of code you will see how we are going to implement this file, and after that we are going to have a look at dealing with rich-text from Contentful. Here is the code for our post.js page:
+        </p>
+        <pre class="language-javascript language-graphql"><code>
+        import React from 'react'
+        import { graphql } from 'gatsby'
+
+        export const query = graphql`
+          query($slug: String!) {
+            contentfulBlogPost(slug: {eq: $slug}) {
+              title
+              publishedDate(formatString: "MMM Do, YYYY") 
+            }
+          }
+        `
+
+        const Post = (props) => {
+          return (
+            &lt;div>
+              &lt;h1>{props.data.contentfulBlogPost.title}&lt;/h1>
+              &lt;p>{props.data.contentfulBlogPost.publishedDate}&lt;/p>
+            &lt;/div>
+          )
+        }
+
+        export default Post
+        </code></pre>
+        <p>
+          In our query we are getting the slug as a variable and then graphql allows us to use equality to get just a single post based on the slug, we just stored as a variable, and return it.
+        </p>
         <section>
           <p>
             Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
