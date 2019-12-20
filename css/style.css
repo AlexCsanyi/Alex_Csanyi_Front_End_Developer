@@ -197,18 +197,10 @@ nav #menu li a:hover {
   justify-content: center;
 }
 
-.heroParticles {
-  background: var(--clr-primary);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 0;
-}
-
-@media (max-width: 1150px) {
-  #particleContainer {
-    display: none;
-  }
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -362,8 +354,9 @@ header p {
 }
 
 .project-2 {
-  background: url(../images/Alex_Csanyi_Project_2_ToDo.jpg) no-repeat;
+  background: url(../images/Heidelberg_landing.jpg) no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .project-3 {
@@ -691,15 +684,15 @@ textarea:focus {
 }
 
 .project-2-image-1 {
-  background: url(../images/todoapp_project_2_main.png);
-  background-size: contain;
+  background: url(../images/Heidelberg_filters.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .project-2-image-2 {
-  background: url(../images/todoapp_project_2_tracker.png);
-  background-size: contain;
+  background: url(../images/Heidelberg_services_vertical.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
