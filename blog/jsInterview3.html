@@ -95,72 +95,101 @@
       </div>
       <section title="The goal of the article">
         <p>
-          In this post (and series) I set out to summarize some of the most important things I learned about JS, the foundations - if you like. I want to talk about the JS Engine, Runtime, Interpreter, Compiler / JIT Compiler and how to write optimized code and why it is so important.
+          In the first part of these series we discovered how the Engines work and what happens when the browser runs your JS code, and now we will look at why it is very important to learn and understand that process and how it can help us write optimized code.
         </p>
       </section>
         <blockquote>
             <p>
-            "It's not what you look at that matters, it's what you see." <br>
-            - Henry David Thoreau
+            "Strength does not come from physical capacity. It comes from an indomitable will." <br>
+            - Mahatma Gandhi
             </p>
         </blockquote>
-        <figure style="display: flex; justify-content: center;">
+        <figure>
             <img
             class="blog-post-img" 
-            src="/images/Blog/05.jsInterview2/How JS WORKS.jpg" alt="infographic on how JS works" style="height: auto; width: auto"/>
+            src="/images/Blog/06.jsInterview3/Optimize-JavaScript.webp" alt="A gear representing JS performance"/>
+            <figcaption>
+                Poorly written JavaScript code can slow your website | Photo by Igor Chishkala on Upwork
+            </figcaption>
         </figure>
         <p>
             Let's get started!
         </p>
-        <h6 class="main-colour-subtitle">01 - JavaScript Engine</h6>
+        <h6 class="main-colour-subtitle">01 - Tips on optimizing code</h6>
         <p>
-            The ECMAScript Engines stand between our JavaScript files and the computer. They translate javascript essentially into 1s and 0s so our computers can understand the instructions we give. There are several engines out there, but one of the most well-known ones is V8 Google's JS engine. There are other engines as well like SpiderMonkey - which is still used in Firefox and was the very first javascript engine, or Chakra - which is used in the Microsoft Edge browser. 
-        </p>
-        <p> 
-           What is inside the Engine?<br>
-           When we give it a JS file, in the first step it does a "lexical analysis" - this is when the code is broken into tokens so it can identify it's meaning. These tokens are formed into an AST (abstract syntax tree), then through an Interpreter, Profiler and Compiler we end up getting code that the CPU in our computers can understand and execute.
-        </p>
-        <p>
-           ECMAScript is the governing body of JS and essentially decides the standard for how JS should work. This is why there can be so many engines, internally how they work is up to the designers as long as they conform with the ECMAScript standards. This also allows engines to constantly develop and evolve so they can become faster and more efficient. Google invests a lot in the V8 engine to make it the fastest engine in the market so that more users choose Chrome, so that they can sell more ads and generate more revenue.
-        </p>
-        <h6 class="main-colour-subtitle">02 - Interpreter and Compiler</h6>
-        <p>
-            The Interpreter works through the JS file, line by line. The Compiler translates the language into the byte sized language (like Machine code - a lower level language) the computer can understand. In some sense all languages have to be interpreted and compiled because it has to run and then translated. <br>
-            An example would be where we have a simple line of JS like:
-        </p>
-        <pre><code class="language-javascript">let result = 1 + obj.x</code></pre>
-        <p>
-            Then we have something in between the code the computer can read and what we had above, Bytecode:
+            What is inline caching and what are hidden classes? First we can have a look at how inline caching can slow the optimization process down inside the JS Engine.
         </p>
         <pre><code class="language-javascript">
-            LdaSmi [1]
-            Star r0
-            LdaNamedProperty a0, [0], [4]
-            Add r0, [6]
+            function findStudent(student) {
+                return `found ${student.name} with id: ${student.id}`
+            }
+
+            const studentData = {
+                name: 'Bravo',
+                id: 'AA1'
+            }
+
+            findStudent(studentData)
+        </code></pre>
+        <p> 
+           Due to inline caching done by the compiler, code that executes the same method repeatedly, will be optimized. In our example above - if the findStudent function is called multiple times, instead of looking up the keys: <code class="language-javascript">student.name</code> and <code class="language-javascript">student.id</code> and their values each time it can be cached and it will just return the string from our code: <code class="language-javascript">`found ${student.name} with id: ${student.id}`</code>, that is 'found Bravo with id: AA1'.
+        </p>
+        <p>
+           Another very important thing to look out for is something called hidden classes. Let's explore this as well through an example.
+        </p>
+        <pre><code class="language-javascript">
+            function Dimension(x, y) {
+               this.x = x;
+               this.y = y;
+            }
+
+            const object1 = new Dimension(1, 2);
+            const object2 = new Dimension(3, 4);
         </code></pre>
         <p>
-            Finally we arrive to Machine code that is readable and executable by machines: 
+            Up until this point the compiler will look at this and just see that we are creating 2 new dimensions and assigning them to object1 and object2. This is all ok. However if let's say type the following to the code above, we'll see what hidden classes are:
         </p>
-        <pre><code class="language-cpp">
-            movl rbx, [rax+0x1b]
-            REX.W movq r10,0x100000000
-            REX.W cmpq r10,rbx
-            jnc 0x30d119104275 &lt;+0x55>
-            REX.W mov rdx,0x100000000
-            call 0x30d118e843e0 (Abort)
-            int3laddl rbx,0x1
+        <pre><code class="language-javascript">
+            object1.a = 30;
+            object1.b = 100;
+
+            object2.b = 30;
+            object2.a = 100;
         </code></pre>
-        <h6 class="main-colour-subtitle">03 - The battle of Compilers and Interpreters</h6>
         <p>
-            JS was created for the web, and in the begininng JS had no compilers it was fast and easy just to interpret the code without needing an additional step to compile. However using an Interpreter has one very important negative, running a lot of JS gets slower and slower. For example if you have a loop so you are running the same code over and over it can get really slow. In this situation a compiler can help. Although in the beggining it takes longer because there is an additional step after interpreting the code to compile it, there is a benefit in doing so; when for example a compiler sees a loop it can actually just simplify it. A compiler does a lot of optimization.
+            This code above will actually slow down the compiler, deoptimize the code. You always want to make sure that you instantiate your object properties in the same order so that your objects have the same hidden class - which is what the compiler uses under the hood. As soon as you have different orders your objects will be assigned different hidden classes and eventually that will lead to a slower performance.
         </p>
         <p>
-            So which one is better? Well they both have their benefits. An interpreter is very fast to set up and get running, but it can get very slow. A compiler can take longer to set up and initialize but has the benefit of speeding up the handling of JS. <br>
-            So is there a way to get the best of both worlds? The answer is yes; JIT Compiler or Just-In-Time Compiler. The goal is to make the engine faster. <br>
-            Initially the code gets sent to the interpreter and then comes the "ignition" (this is what they call this step in the V8 Engine). The interpreter takes in the AST and puts out Bytecode. While this is happening a Profiler (or monitor) is running and constantly checking how the code can be optimized (what types are being used, how many times it is run, etc...). When the profiler finds code that can be compiled or optimized it passes it on to the JIT Compiler which then outputs optimized code, optimized Machine code (which is modified so it runs faster). This means the execution of the code will be improving as it works. This is where the name comes from. It is working as the code is running - just in time.
+            These are, of course, very important to take into consideration but the key is to write code that is predictable (by humans and by the coputer as well). As long as you pay attention to that you should be fine and be able to write fast and efficient code. Always delete unused variables, where possible avoid "false if(){...}" and use "true else" - which leaves only one possibility, and in genral delete "dead code".
+        </p>
+        <pre><code class="language-javascript">
+            // unoptimized
+            function test(node) {
+                var parent = node.parentNode;
+
+                if (0) {
+                    alert( "Hello from the other side" );
+                } else {
+                    alert( "We love JS" );
+                }
+
+                return;
+
+                alert( 1 );
+            }
+        </code></pre>
+        <p>After optimization</p>
+        <pre><code class="language-javascript">
+            // optimized
+            function test(){alert("We love JS")}
+        </code></pre>
+        <p>
+            The variable parent will never need to be used, so it gets deleted;<br>
+            False if() {…} is deleted as ‘dead code’; true else leaves only one possibility.<br>
+            Return is deleted; it’s also dead code.
         </p>
         <p>
-            The reason why it is very important to understand the process in the JS Engine is that no compiler is perfect it can make mistakes and then that can take very long time (the optimization process). So if we understand how this works we can write better more optimized code. 
+            There are numerous technologies and techniques to help you with optimization of JavaScript code to speed up download and rendering times. In this post I only looked at some of the absolute foundational techniques and concepts.
         </p>
         <section>
           <p>
