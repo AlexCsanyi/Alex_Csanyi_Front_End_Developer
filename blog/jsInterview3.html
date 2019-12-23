@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+    />
+    <!--Bootstrap 4 - to create responsive layouts-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--animate.css - to work with WOW.js in creating scroll reveal animations-->
+    <link rel="stylesheet" type="text/css" href="../css/animate.css" />
+    <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <!--IONICONS - icon library-->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"
+    ></script>
+    <script 
+    src="https://kit.fontawesome.com/c3b9ad3166.js" 
+    crossorigin="anonymous"
+    SameSite="none">
+    </script>
+    <!--My own css-->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <title>Alex | JS Foundations</title>
+  </head>
+  <body>
+  <div class="main-container">
+    <!-- NAV START -->
+    <nav>
+      <span id="brand" class="wow fadeInLeft">
+        <a href="../index.html">Alex Csanyi</a>
+      </span>
+      <ul id="menu">
+        <li class="wow fadeInRight" data-wow-delay="0.4s">
+          <a class="step-backward" href="./01.blogLandingPage.html">
+            <i class="fas fa-step-backward"></i>
+            back to blog home
+          </a>
+        </li>
+        <li class="wow fadeInRight" data-wow-delay="0.4s">
+          <a href="../index.html">home<span>.</span></a>
+        </li>
+        <li class="wow fadeInRight" data-wow-delay="0.4s">
+          <a href="../about.html">about<span>.</span></a>
+        </li>
+      </ul>
+
+      <div id="toggle">
+        <div class="span">menu</div>
+      </div>
+    </nav>
+
+    <div id="resize">
+      <div class="close-btn">close</div>
+      <ul id="menu">
+        <li class="wow fadeInRight" data-wow-delay="0.4s">
+          <a class="step-backward" href="./01.blogLandingPage.html">
+            <i class="fas fa-step-backward"></i>
+            blog home
+          </a>
+        </li>
+        <li>
+          <a href="../index.html">home<span>.</span></a>
+        </li>
+        <li>
+          <a href="../about.html">about<span>.</span></a>
+        </li>
+      </ul>
+    </div>
+    <!-- NAV END -->
+
+    <article class="post">
+      <h2 class="main-title">Chapter Six:</h2>
+      <h4 class="subtitle">06 | JavaScript Foundations Part II</h4>
+      <div class="hr">
+        <div class="row"></div>
+      </div>
+      <section title="The goal of the article">
+        <p>
+          In this post (and series) I set out to summarize some of the most important things I learned about JS, the foundations - if you like. I want to talk about the JS Engine, Runtime, Interpreter, Compiler / JIT Compiler and how to write optimized code and why it is so important.
+        </p>
+      </section>
+        <blockquote>
+            <p>
+            "It's not what you look at that matters, it's what you see." <br>
+            - Henry David Thoreau
+            </p>
+        </blockquote>
+        <figure style="display: flex; justify-content: center;">
+            <img
+            class="blog-post-img" 
+            src="/images/Blog/05.jsInterview2/How JS WORKS.jpg" alt="infographic on how JS works" style="height: auto; width: auto"/>
+        </figure>
+        <p>
+            Let's get started!
+        </p>
+        <h6 class="main-colour-subtitle">01 - JavaScript Engine</h6>
+        <p>
+            The ECMAScript Engines stand between our JavaScript files and the computer. They translate javascript essentially into 1s and 0s so our computers can understand the instructions we give. There are several engines out there, but one of the most well-known ones is V8 Google's JS engine. There are other engines as well like SpiderMonkey - which is still used in Firefox and was the very first javascript engine, or Chakra - which is used in the Microsoft Edge browser. 
+        </p>
+        <p> 
+           What is inside the Engine?<br>
+           When we give it a JS file, in the first step it does a "lexical analysis" - this is when the code is broken into tokens so it can identify it's meaning. These tokens are formed into an AST (abstract syntax tree), then through an Interpreter, Profiler and Compiler we end up getting code that the CPU in our computers can understand and execute.
+        </p>
+        <p>
+           ECMAScript is the governing body of JS and essentially decides the standard for how JS should work. This is why there can be so many engines, internally how they work is up to the designers as long as they conform with the ECMAScript standards. This also allows engines to constantly develop and evolve so they can become faster and more efficient. Google invests a lot in the V8 engine to make it the fastest engine in the market so that more users choose Chrome, so that they can sell more ads and generate more revenue.
+        </p>
+        <h6 class="main-colour-subtitle">02 - Interpreter and Compiler</h6>
+        <p>
+            The Interpreter works through the JS file, line by line. The Compiler translates the language into the byte sized language (like Machine code - a lower level language) the computer can understand. In some sense all languages have to be interpreted and compiled because it has to run and then translated. <br>
+            An example would be where we have a simple line of JS like:
+        </p>
+        <pre><code class="language-javascript">let result = 1 + obj.x</code></pre>
+        <p>
+            Then we have something in between the code the computer can read and what we had above, Bytecode:
+        </p>
+        <pre><code class="language-javascript">
+            LdaSmi [1]
+            Star r0
+            LdaNamedProperty a0, [0], [4]
+            Add r0, [6]
+        </code></pre>
+        <p>
+            Finally we arrive to Machine code that is readable and executable by machines: 
+        </p>
+        <pre><code class="language-cpp">
+            movl rbx, [rax+0x1b]
+            REX.W movq r10,0x100000000
+            REX.W cmpq r10,rbx
+            jnc 0x30d119104275 &lt;+0x55>
+            REX.W mov rdx,0x100000000
+            call 0x30d118e843e0 (Abort)
+            int3laddl rbx,0x1
+        </code></pre>
+        <h6 class="main-colour-subtitle">03 - The battle of Compilers and Interpreters</h6>
+        <p>
+            JS was created for the web, and in the begininng JS had no compilers it was fast and easy just to interpret the code without needing an additional step to compile. However using an Interpreter has one very important negative, running a lot of JS gets slower and slower. For example if you have a loop so you are running the same code over and over it can get really slow. In this situation a compiler can help. Although in the beggining it takes longer because there is an additional step after interpreting the code to compile it, there is a benefit in doing so; when for example a compiler sees a loop it can actually just simplify it. A compiler does a lot of optimization.
+        </p>
+        <p>
+            So which one is better? Well they both have their benefits. An interpreter is very fast to set up and get running, but it can get very slow. A compiler can take longer to set up and initialize but has the benefit of speeding up the handling of JS. <br>
+            So is there a way to get the best of both worlds? The answer is yes; JIT Compiler or Just-In-Time Compiler. The goal is to make the engine faster. <br>
+            Initially the code gets sent to the interpreter and then comes the "ignition" (this is what they call this step in the V8 Engine). The interpreter takes in the AST and puts out Bytecode. While this is happening a Profiler (or monitor) is running and constantly checking how the code can be optimized (what types are being used, how many times it is run, etc...). When the profiler finds code that can be compiled or optimized it passes it on to the JIT Compiler which then outputs optimized code, optimized Machine code (which is modified so it runs faster). This means the execution of the code will be improving as it works. This is where the name comes from. It is working as the code is running - just in time.
+        </p>
+        <p>
+            The reason why it is very important to understand the process in the JS Engine is that no compiler is perfect it can make mistakes and then that can take very long time (the optimization process). So if we understand how this works we can write better more optimized code. 
+        </p>
+        <section>
+          <p>
+            Hope you'll find some value in my post and if you have any questions or feedback please feel free to reach out.
+          </p>
+          <p>See you next time!</p>
+        </section>
+    </article>
+
+    <!-- FOOTER START -->
+    <footer>
+      <div class="container">
+        <br /><br />
+        <div class="collab">
+          <div class="row"></div>
+        </div>
+        <br />
+        <div class="hr">
+          <div class="row"></div>
+        </div>
+        <br /><br />
+        <div class="info">
+          <div class="row">
+            <div class="col-lg-3" id="personal">
+              <p class="wow fadeInUp">Written by</p>
+              <h4 class="wow fadeInUp" data-wow-delay="0.2s">
+                Alex Csanyi
+              </h4>
+              <br /><br />
+            </div>
+            <div class="col-lg-2" id="personal">
+              <p class="wow fadeInUp">Date</p>
+              <h4 class="wow fadeInUp" data-wow-delay="0.2s">
+                23rd Dec 2019
+              </h4>
+              <br /><br />
+            </div>
+            <div class="col-lg-4" id="address">
+              <p class="wow fadeInUp">Find me</p>
+              <h4 class="wow fadeInUp" data-wow-delay="0.4s">
+                53° 29' 2.2524'' N : 2° 14' 40.7184'' W
+              </h4>
+              <br /><br />
+            </div>
+            <div class="col-lg-3" id="media">
+              <p class="wow fadeInUp">follow me</p>
+              <ul>
+                <li id="linkedin" class="wow fadeInUp" data-wow-delay="0.4s">
+                  <a href="https://www.linkedin.com/in/alex-csanyi/" target="_blank"
+                    >li</a
+                  >
+                </li>
+                <li id="github" class="wow fadeInUp" data-wow-delay="0.6s">
+                  <a href="https://github.com/AlexCsanyi" target="_blank">gh</a>
+                </li>
+                <li id="twitter" class="wow fadeInUp" data-wow-delay="0.8s">
+                  <a href="https://twitter.com/AlexCsanyi" target="_blank"
+                    >tw</a
+                  >
+                </li>
+              </ul>
+              <br /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+  </div>
+
+    <!--WOW.js - to create scroll reveal animations-->
+    <script src="../js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <!--jQuery - for smooth scroll and menu animation-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/smoothScroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+  </body>
+</html>
