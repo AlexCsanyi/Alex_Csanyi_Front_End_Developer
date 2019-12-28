@@ -95,7 +95,7 @@
       </div>
       <section title="The goal of the article">
         <p>
-          In this post (and series) I set out to summarize some of the most important things I learned about JS, the foundations - if you like. I want to talk about the JS Engine, Runtime, Interpreter, Compiler / JIT Compiler and how to write optimized code and why it is so important.
+          In this series I set out to summarize some of the most important things I learned about JS, the foundations - if you like. It is now time to talk about what I believe are two very important topics, call stack and memory heap.
         </p>
       </section>
         <blockquote>
@@ -107,63 +107,103 @@
         <figure>
             <img
             class="blog-post-img" 
-            src="" alt="" />
+            src="/images/Blog/07.jsInterview4/QUESTION.png" 
+            alt="A gear representing JS performance"/>
         </figure>
         <p>
-            Let's get started!
+           We need a place to store our data (variables, objets, etc...) and a place to actually run and keep track of what's happening line by line and this is what we use the call stack and the memory heap for. <br>
+           Memory heap is where the memory allocation happens and the call stack where the engine keeps track of where the code is during the execution.
         </p>
-        <h6 class="main-colour-subtitle">01 - JavaScript Engine</h6>
+        <h6 class="main-colour-subtitle">01 - Memory Heap</h6>
+        <pre><code class="language-javascript">
+            const num = 1;
+            const string = 'text';
+            const object = {
+                firstKey: 'valueOne',
+                secondKey: 'valueTwo'
+            }
+        </code></pre>
         <p>
-            The ECMAScript Engines stand between our JavaScript files and the computer. They translate javascript essentially into 1s and 0s so our computers can understand the instructions we give. There are several engines out there, but one of the most well-known ones is V8 Google's JS engine. There are other engines as well like SpiderMonkey - which is still used in Firefox and was the very first javascript engine, or Chakra - which is used in the Microsoft Edge browser. 
+            The above code simply tells the JS engine to allocate memory for a number and point to the value of 1; allocate memory for a string with the value of 'text' and finally allocate value for an object with key and value pairs. <br>
+            The way information is allocated in the heap is unordered; the memory heap is a large space to store data, where our variables point to different storage areas.
         </p>
-        <p> 
-           What is inside the Engine?<br>
-           When we give it a JS file, in the first step it does a "lexical analysis" - this is when the code is broken into tokens so it can identify it's meaning. These tokens are formed into an AST (abstract syntax tree), then through an Interpreter, Profiler and Compiler we end up getting code that the CPU in our computers can understand and execute.
+       <h6 class="main-colour-subtitle">02 - Call Stack</h6>
+       <pre><code class="language-javascript">
+            function subtractNumber(num) {
+                return num - 1
+            }
+            
+            function addNumbers() {
+                const sum = 1 + 2;
+                return subtractNumber(sum);
+            }
+
+            addNumbers()
+        </code></pre>
+        <p>
+            The function in our code will be allocated memory and so every time we call it the engine knows which area of the memory we are pointing to. While we run this function we are using the call stack. The stack works in a FIFO way - First In First Out.
         </p>
         <p>
-           ECMAScript is the governing body of JS and essentially decides the standard for how JS should work. This is why there can be so many engines, internally how they work is up to the designers as long as they conform with the ECMAScript standards. This also allows engines to constantly develop and evolve so they can become faster and more efficient. Google invests a lot in the V8 engine to make it the fastest engine in the market so that more users choose Chrome, so that they can sell more ads and generate more revenue.
+            In the first step the functions are declared and are allocated a memory; at this point if we were to run our code in for example the Chrome Developer tools and look at our call stack we would see "anonymous" - which is the Global Execution Context. <br>
+            In the next step the addNumbers function gets called and is now on top of 'anonymous'. At this point our call stack has 2 lines and we get the sum of 1 and 2, 3. <br>
+            After this the stack gets added a 3rd line to the top: subtractNumber, our function where we subtract 1 from the "sum". So now we have 2 as our return value. <br>
+            After this the subtractNumber gets pushed off / (removed from) the stack as it is finished and we are now back to calculate; now we have our return value of 2 (3 minus 1); addNumbers gets pushed off the stack and we are back to anonymous and finally anonymous gets pushed off as well and we are done executing our function.
         </p>
-        <h6 class="main-colour-subtitle">02 - Interpreter and Compiler</h6>
+        <h6 class="main-colour-subtitle">03 - Stack Overflow</h6>
         <p>
-            The Interpreter works through the JS file, line by line. The Compiler translates the language into the byte sized language (like Machine code - a lower level language) the computer can understand. In some sense all languages have to be interpreted and compiled because it has to run and then translated. <br>
-            An example would be where we have a simple line of JS like:
+            In this and the next section we are going to look at two ways that can cause our programs to run into issues.
         </p>
-        <pre><code class="language-javascript">let result = 1 + obj.x</code></pre>
         <p>
-            Then we have something in between the code the computer can read and what we had above, Bytecode:
+            Stack Overflow happens when we keep calling a function over and over again. It is very easy to cause it. For example:
         </p>
         <pre><code class="language-javascript">
-            LdaSmi [1]
-            Star r0
-            LdaNamedProperty a0, [0], [4]
-            Add r0, [6]
+            function overflow() {
+                overflow()
+            }
         </code></pre>
         <p>
-            Finally we arrive to Machine code that is readable and executable by machines: 
+            In this recursive function we have a function that is simply calling itself. When this is run we get an error 'maximum call stack size exceeded'.
         </p>
-        <pre><code class="language-cpp">
-            movl rbx, [rax+0x1b]
-            REX.W movq r10,0x100000000
-            REX.W cmpq r10,rbx
-            jnc 0x30d119104275 &lt;+0x55>
-            REX.W mov rdx,0x100000000
-            call 0x30d118e843e0 (Abort)
-            int3laddl rbx,0x1
+        <h6 class="main-colour-subtitle">04 - Garbage Collection and Memory Leak</h6>
+        <p>
+            JS allocates memory in the Memory Heap but once we are finished and no longer need a variable or an object it gets removed; the memory gets freed up. Only the data that is still useful remains. This is of course to prevent us from running out of memory - a limited resource. <br>
+            In JS Garbage Collection is automatic but this does not mean we can ignore memory allocation. 
+        </p>
+        <p>
+            Let's have a look at an example to see how it works.
+        </p>
+        <pre><code class="language-javascript">
+            var person = {
+                name: 'Alex',
+                age: 30
+            }
+
+            person = 'person'
         </code></pre>
-        <h6 class="main-colour-subtitle">03 - The battle of Compilers and Interpreters</h6>
         <p>
-            JS was created for the web, and in the begininng JS had no compilers it was fast and easy just to interpret the code without needing an additional step to compile. However using an Interpreter has one very important negative, running a lot of JS gets slower and slower. For example if you have a loop so you are running the same code over and over it can get really slow. In this situation a compiler can help. Although in the beggining it takes longer because there is an additional step after interpreting the code to compile it, there is a benefit in doing so; when for example a compiler sees a loop it can actually just simplify it. A compiler does a lot of optimization.
-        </p>
-        <div class="tip tip-left">
-            <p>https://v8.dev/ - to learn more about one of the most robust engines</p>
-        </div>
-        <p>
-            So which one is better? Well they both have their benefits. An interpreter is very fast to set up and get running, but it can get very slow. A compiler can take longer to set up and initialize but has the benefit of speeding up the handling of JS. <br>
-            So is there a way to get the best of both worlds? The answer is yes; JIT Compiler or Just-In-Time Compiler. The goal is to make the engine faster. <br>
-            Initially the code gets sent to the interpreter and then comes the "ignition" (this is what they call this step in the V8 Engine). The interpreter takes in the AST and puts out Bytecode. While this is happening a Profiler (or monitor) is running and constantly checking how the code can be optimized (what types are being used, how many times it is run, etc...). When the profiler finds code that can be compiled or optimized it passes it on to the JIT Compiler which then outputs optimized code, optimized Machine code (which is modified so it runs faster). This means the execution of the code will be improving as it works. This is where the name comes from. It is working as the code is running - just in time.
+            In the code above, we have an object called person that has 2 key value pairs and those get allocated in the memory, so person is pointing to these. However in the next line we are assiging just the string 'person' to our person variable and therefore there is no longer a need for the key value pairs to be allocated precious memory; they get 'sweeped away'. <br>
+            Another good example scenario would be a variables that is declared inside a function. Once the function has stopped running - so it is no longer in the call stack - the variable doesn't need to have memory allocated to it.
         </p>
         <p>
-            The reason why it is very important to understand the process in the JS Engine is that no compiler is perfect it can make mistakes and then that can take very long time (the optimization process). So if we understand how this works we can write better more optimized code. 
+            How can we run into issues when it comes to memory? Let's see by looking at another example.
+        </p>
+        <pre><code class="language-javascript">
+            let array = [];
+            for (let i = 5; i > 1; i++) {
+                array.push(i-1)
+            }
+        </code></pre>
+        <p>
+            In this example as you can see we created an infinite loop; where "i" is always going to be larger than 1 so it will just keep adding "i-1" to the array over and over again, until the meemory fills up and there is nothing left for us to use.
+        </p>
+        <p>
+            One of the three most common memory leaks that can happen is the global variable. In general we want to avoid adding too many of these, becasue technically each time we declare one we are allocating space for them in the memory heap. So we need to ask ourselves the question each time we declare one, does it have to have global scope?
+        </p>
+        <p>
+            Another frequent memory issue is the event listener. If we add these but never remove them when we don't need them we are causing memory leaks. A good example for this would be a single page app where the user goes back and forth between pages and more and more memory is being allocated to the event listeners in the background, if they are not removed.
+        </p>
+        <p>
+            The third most common way to cause memory leak is by using setInterval. When you are referencing objects, variables inside the setInterval those never get cleared out by the garbage collector. They just keep running and running...
         </p>
         <section>
           <p>
