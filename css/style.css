@@ -386,6 +386,83 @@ header p {
   }
 }
 
+/* ----- Extra Projects Starts Here ----- */
+#extra-projects-container {
+  text-align: center;
+}
+
+#extra-projects-container h1 {
+  margin-bottom: 80px;
+}
+
+#projects-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.project-card {
+  margin: 10px;
+  text-align: left;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  padding: 25px;
+  background-color: rgba(10, 10, 15, 1);
+  position: relative;
+}
+
+.project-card-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-folder-open {
+  color: var(--clr-light);
+  font-size: 32px;
+}
+
+.project-card-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.project-card-links a:hover {
+  color: var(--clr-light);
+}
+
+.project-card-content {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.project-card-content p {
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.project-card-footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.project-card-footer-skills {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.project-card-footer-skills li {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  #projects-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- Extra Projects Effect Ends Here ----- */
 /* ----- Image Overlay / Hover Effect Starts Here ----- */
 
 .overlay {
