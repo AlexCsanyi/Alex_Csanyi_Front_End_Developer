@@ -316,6 +316,12 @@ header p {
   }
 }
 
+@media (max-width: 640px) {
+  .scroll-down {
+    display: none;
+  }
+}
+
 @media (max-width: 320px) {
   .scroll-down {
     display: none;
