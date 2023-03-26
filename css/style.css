@@ -477,6 +477,11 @@ textarea.field:focus {
     text-transform: uppercase;
     font-weight: bolder;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+}
+
+.cta-btn:focus {
+    outline: none;
 }
 
 .cta-btn .cta-btn__text {
