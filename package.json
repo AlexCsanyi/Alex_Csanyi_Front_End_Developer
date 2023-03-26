@@ -1,0 +1,28 @@
+{
+    "name": "alex_csanyi_software_developer_portfolio",
+    "version": "1.0.0",
+    "description": "Alex Csanyi Software Developer",
+    "scripts": {
+        "build": "parcel build index.html --public-url ./"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "parcel": "^2.8.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AlexCsanyi/Alex_Csanyi_Front_End_Developer.git"
+    },
+    "keywords": [
+        "Software",
+        "Developer",
+        "Manchester",
+        "Javascript",
+        "PHP"
+    ],
+    "author": "Alex Csanyi",
+    "bugs": {
+        "url": "https://github.com/AlexCsanyi/Alex_Csanyi_Front_End_Developer/issues"
+    },
+    "homepage": "https://alexcsanyi.dev"
+}

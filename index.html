@@ -1,469 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--Bootstrap 4 - to create responsive layouts-->
-    <link rel="stylesheet" href="./css/css/bootstrap.min.css">
-    <!--animate.css - to work with WOW.js in creating scroll reveal animations-->
-    <link rel="stylesheet" type="text/css" href="./css/animate.css">
-    <!--Google Fonts-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono&display=swap"
-      rel="stylesheet"
-    />
-    <!--IONICONS - icon library-->
-    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-    <!--FONT AWESOME - icon library-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <!--My own css-->
-    <link rel="stylesheet" href="./css/style.css" />
-
-    <title>Alex Csanyi | Front End Developer</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <!-- Navbar Starts Here -->
-      <nav>
-        <span id="brand" class="wow fadeInLeft">
-          <a href="#hero">Alex Csanyi</a>
-        </span>
-        <ul id="menu">
-          <li class="wow fadeInRight" data-wow-delay="0.4s" >
-            <a href="#hero">home<span>.</span></a>
-          </li>
-          <li class="wow fadeInRight" data-wow-delay="0.6s">
-            <a href="#work">projects<span>.</span></a>
-          </li>
-          <li class="wow fadeInRight" data-wow-delay="0.8s">
-            <a href="./about.html">about<span>.</span></a>
-          </li>
-          <li class="wow fadeInRight" data-wow-delay="0.8s">
-            <a href="#take-me-here-for-contact">contact<span>.</span></a>
-          </li>
-          <li class="wow fadeInRight" data-wow-delay="0.8s">
-            <a href="./blog/01.blogLandingPage.html">blog<span>.</span></a>
-          </li>
-        </ul>
-
-        <div id="toggle">
-          <div class="span">menu</div>
-        </div>
-      </nav>
-
-      <div id="resize">
-        <div class="close-btn">close</div>
-        <ul id="menu">
-          <li>
-            <a href="#hero">home<span>.</span></a>
-          </li>
-          <li>
-            <a href="#work">projects<span>.</span></a>
-          </li>
-          <li>
-            <a href="./about.html">about<span>.</span></a>
-          </li>
-          <li>
-            <a href="#contact-alex-csanyi">contact<span>.</span></a>
-          </li>
-          <li>
-            <a href="./blog/01.blogLandingPage.html">blog<span>.</span></a>
-          </li>
-        </ul>
-      </div>
-      <!-- Navbar Ends Here -->
-
-      <!-- Hero Section Starts Here -->
-      <div id="hero" class="hero">
-        <header>
-          <h1>Hi, my name is Alex and I am a Front End Developer.</h1>
-          <p>I'm based in Manchester (UK). I love creating new things with HTML5, CSS3 and Javascript.</p>
-          <p>email: alex.csanyi@gmail.com | <a id="headerDownloadCV" href="./misc_assets/Alex Csanyi CV 2019.pdf" download="" target="_blank">download CV</a></p>
-          <ul class="heroSocial">
-            <li>
-              <a href="https://www.linkedin.com/in/alex-csanyi/" target="_blank">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/AlexCsanyi" target="_blank">
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
-            </li>
-          </ul>
-          <div id="subsection">
-            <h4>Are you representing a registered charity or non-profit organization?</h4>
-            <p>
-              I am available and you can find me on <a href="https://socialcoder.org/Home/Index" target="_blank" rel="noopener noreferrer">socialcoder.org</a>
-            </p>
-          </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./public/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./public/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./public/favicon-16x16.png"
+        />
+        <link
+            rel="mask-icon"
+            href="./public/safari-pinned-tab.svg"
+            color="#5bbad5"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script type="text/javascript" src="./js/main.js" defer></script>
+        <title>Alex Csanyi | Software Developer</title>
+    </head>
+    <body>
+        <header class="container sticky-top">
+            <nav class="navbar">
+                <div class="navbar-scroll-inidicator">
+                    <canvas id="canvas" width="25" height="25"></canvas>
+                </div>
+                <div>
+                    <p class="social">
+                        <a
+                            href="https://www.linkedin.com/in/alex-csanyi/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="icon icon--social"
+                            >in.</a
+                        >
+                    </p>
+                    <p class="social">
+                        <a
+                            href="https://github.com/AlexCsanyi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="icon icon--social"
+                            >gh.</a
+                        >
+                    </p>
+                </div>
+            </nav>
         </header>
-      </div>
+        <main id="main" class="container">
+            <content>
+                <section id="container--hero">
+                    <div>
+                        <p class="txt--secondary-alt-color">Alex Csanyi</p>
+                        <h1>
+                            <span class="txt--main-xl">
+                                Software Developer Manchester, UK.
+                            </span>
+                        </h1>
+                        <h3>
+                            Building solutions to problems with
+                            <strong> JavaScript & PHP </strong>
+                        </h3>
+                        <p>
+                            email:
+                            <a class="link" href="mailto:alex.csanyi@gmail.com"
+                                >alex.csanyi@gmail.com</a
+                            >
+                            <br />
+                            cv:
+                            <a
+                                class="link"
+                                href="./public/Alex_Csanyi_CV_2023.pdf"
+                                download
+                                target="_blank"
+                            >
+                                download
+                            </a>
+                        </p>
+                    </div>
+                </section>
 
-      <div class="scroll-down"></div>
-      <!-- Hero Section Ends Here -->
+                <div class="whitespace"></div>
 
-      <!-- Projects Starts Here -->
-      <div id="work" class="container-fluid">
-        <br><br><br>
+                <small>fancy headline...</small>
+                <p class="txt--secondary-alt-color">
+                    I seek truth and simplicity to make the complex clear.
+                </p>
+                <p class="txt--main-xl">Years of experimentation</p>
 
-        <h1 id="project-section-header" class="wow fadeInUp">Projects</h1>
-        <div class="vertical"></div>
-        
-        <br>
-        
+                <div class="whitespace"></div>
+
+                <section>
+                    <div class="section--title">
+                        <span class="txt--secondary-alt-color">0/1 . WORK</span>
+                    </div>
+
+                    <div class="section--item">
+                        <h2>software developer @ CANDDi</h2>
+                        <h3>03.2020 - present</h3>
+                        <p>
+                            building applications with
+                            <strong> PHP, JavaScript, MySQL</strong>. My work
+                            ranges from building UI (backbone.js, Bootstrap CSS,
+                            sass), writing APIs, AWS lambda functions (
+                            Node.js), cronjobs, RabbitMQ event handlers in a
+                            pub/sub event driven architectural environment, and
+                            analysing data.
+                        </p>
+                        <p>
+                            I have implemented several features such as
+                            reporting dashboards (from writing the SQL queries
+                            to implementing the APIs and the GUI). A single page
+                            form generator which enabled the sales team to
+                            create landing pages for our clinets in just a few
+                            clicks (including domain registration, SSL,
+                            Cloudfront distribution, ...). External API
+                            integrations with Xero and AWS services. A "data
+                            importer" pipline which allows users to import data
+                            from external CSV files into the system. I have also
+                            worked on smaller features like integrating CKEditor
+                            and Socket.io.
+                        </p>
+                    </div>
+
+                    <div class="section--item">
+                        <h2>exploring...</h2>
+                        <h3>2012 - 03.2020</h3>
+                        <p>
+                            Revenue Management (Hyatt, Manchester), Business
+                            Owner (Lazy Haus Bar, Croatia), Reservations and
+                            Revenue Management (Scotland, London) - Officer
+                            (Carnival Cruise Lines, USA), Junior Accountant
+                            (Continental - Hungary)
+                        </p>
+                    </div>
+                </section>
+
+                <div class="whitespace"></div>
+
+                <section>
+                    <div class="section--title">
+                        <span class="txt--secondary-alt-color">
+                            0/2 . Projects
+                        </span>
+                    </div>
+
+                    <div class="section--item">
+                        <h2>
+                            Version one always beats the `perfect` version
+                            none...
+                        </h2>
+                        <p>
+                            I love to experiment. To learn more about what I am
+                            up to -
+                            <a
+                                href="https://notlocalhost.co.uk"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="link--external"
+                            >
+                                visit my blog
+                            </a>
+                        </p>
+                    </div>
+                </section>
+
+                <div class="whitespace"></div>
+
+                <section>
+                    <div class="section--title">
+                        <span class="txt--secondary-alt-color">
+                            0/3 . Education
+                        </span>
+                    </div>
+
+                    <div class="section--item">
+                        <h2>Daily.dev | FreeCodeCamp</h2>
+                        <h3>2017 - present</h3>
+                        <p>
+                            I got tremendous value out of FreeCodeCamp;
+                            Daily.dev is my go to for keeping up.
+                        </p>
+                    </div>
+
+                    <div class="section--item">
+                        <h2>University of Pannonia</h2>
+                        <h3>2008 - 2012</h3>
+                        <p>
+                            Faculty of Economics BA, Business/Managerial
+                            Economics
+                        </p>
+                    </div>
+                </section>
+
+                <div class="whitespace"></div>
+
+                <p class="txt--secondary-alt-color">
+                    Have something exciting in mind?
+                </p>
+                <p class="txt--main-xl">Get in touch...</p>
+
+                <form
+                    name="contact-form"
+                    id="contact-form"
+                    netlify
+                    method="POST"
+                    data-netlify="true"
+                >
+                    <div class="form-col">
+                        <h5>01</h5>
+                        <label class="label" for="form-name"
+                            >What's your name?</label
+                        >
+                        <input
+                            class="field"
+                            type="text"
+                            id="form-name"
+                            name="name"
+                            required
+                            placeholder="John Doe *"
+                        />
+                    </div>
+                    <div class="form-col">
+                        <h5>02</h5>
+                        <label class="label" for="email"
+                            >What's your email?</label
+                        >
+                        <input
+                            class="field"
+                            type="email"
+                            id="form-email"
+                            name="email"
+                            required
+                            placeholder="john@doe.com *"
+                        />
+                    </div>
+                    <div class="form-col">
+                        <h5>03</h5>
+                        <label class="label" for="email"
+                            >What's the name of your organization?</label
+                        >
+                        <input
+                            class="field"
+                            type="text"
+                            id="form-company"
+                            name="company"
+                            required
+                            placeholder="John & Doe ®"
+                        />
+                    </div>
+                    <div class="form-col">
+                        <h5>04</h5>
+                        <label class="label" for="message">Your message</label>
+                        <textarea
+                            class="field"
+                            type="text"
+                            id="form-message"
+                            name="message"
+                            rows="4"
+                            required
+                            placeholder="Hello Alex, I'd like to talk to you about ... *"
+                        ></textarea>
+                    </div>
+                    <div id="container-btn-submit">
+                        <a
+                            type="submit"
+                            name="contact-submit"
+                            href="#contact-form"
+                            class="cta-btn"
+                            cursor-class="overlay"
+                        >
+                            <span class="cta-btn__text">Send</span>
+                            <span class="cta-btn__text cta-btn__foreground-text"
+                                >Message</span
+                            >
+                        </a>
+                    </div>
+                </form>
+            </content>
+        </main>
+
         <div class="whitespace"></div>
-        <div class="whitespace"></div>
 
-        <div class="row">
-          <div class="project-header-container">
-            <h2 class="project-header wow fadeInUp">360. App</h2>
-          </div>
-          <div class="col-lg-1"></div>
-  
-          <div class="col-lg-5 project project-1 wow fadeInUp">
-            <div class="overlay">
-              <ul data-wow-delay="0.4s" class="see-more wow fadeInUp">
-                <li>
-                  <a data-content='Learn More' href="/project1.html">
-                    <ion-icon name="add-circle"></ion-icon>
-                  </a>
-                </li>
-                <li>
-                  <a data-content='Github' href="https://github.com/AlexCsanyi/Note-360" target="_blank">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </a>
-                </li>
-                <li>
-                  <a data-content='Demo' href="https://note-360.web.app/landing" target="_blank">
-                    <ion-icon name="arrow-dropright-circle"></ion-icon>
-                  </a>
-                </li>
-              </ul>
+        <footer id="footer">
+            <div class="container">
+                <div class="collab">
+                    <p>Thank you for visiting.</p>
+                </div>
+
+                <div class="hr"></div>
+
+                <div class="info">
+                    <div id="personal">
+                        <p>Download CV</p>
+                        <a
+                            href="./public/Alex_Csanyi_CV_2023.pdf"
+                            download
+                            target="_blank"
+                        >
+                            <span
+                                aria-label="Download CV"
+                                style="visibility: hidden; display: none"
+                            >
+                                Download CV
+                            </span>
+                            <i class="icon icon--download"></i>
+                        </a>
+                    </div>
+
+                    <div id="address">
+                        <p>Find me</p>
+                        <h4>53° 29' 2.2524'' N : 2° 14' 40.7184'' W</h4>
+                    </div>
+
+                    <div id="media">
+                        <p>follow me</p>
+
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/alex-csanyi/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="icon icon--social"
+                                    >in.</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://github.com/AlexCsanyi"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="icon icon--social"
+                                    >gh.</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-  
-          <div class="col-lg-6"></div>
+        </footer>
+
+        <div id="cursor">
+            <div class="cursor__inner"></div>
         </div>
-
-        <div class="whitespace"></div>
-
-        <div class="row">
-            <div class="project-header-container">
-              <h2 class="project-header wow fadeInUp">The Heidelberg House.</h2>
-            </div>
-            <div class="col-lg-6"></div>
-  
-            <div class="col-lg-5 project project-2 wow fadeInUp">
-              <div class="overlay">
-                <ul data-wow-delay="0.4s" class="see-more wow fadeInUp">
-                  <li>
-                    <a data-content='Learn More' href="/project2.html">
-                      <ion-icon name="add-circle"></ion-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a data-content='Github' href="https://github.com/AlexCsanyi/hotel" target="_blank">
-                      <ion-icon name="logo-github"></ion-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a data-content='Demo' href="https://theheidelberghouse.netlify.com" target="_blank">
-                      <ion-icon name="arrow-dropright-circle"></ion-icon>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-  
-            <div class="col-lg-1"></div>
-          </div>
-
-        <div class="whitespace"></div>
-
-        <div class="row">
-          <div class="project-header-container">
-            <h2 class="project-header wow fadeInUp">RB Dream 2019</h2>
-          </div>
-          <div class="col-lg-1"></div>
-  
-          <div class="col-lg-5 project project-3 wow fadeInUp">
-            <div class="overlay">
-              <ul data-wow-delay="0.4s" class="see-more wow fadeInUp">
-                <li>
-                  <a data-content='Learn More' href="/project3.html">
-                    <ion-icon name="add-circle"></ion-icon>
-                  </a>
-                </li>
-                <li>
-                  <a rel="noreferrer" data-content='Github' href="https://github.com/AlexCsanyi/RBDream_Concept3" target="_blank">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </a>
-                </li>
-                <li>
-                  <a data-content='Demo' href="https://rbdream.netlify.com" target="_blank">
-                    <ion-icon name="arrow-dropright-circle"></ion-icon>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-  
-          <div class="col-lg-6"></div>
-        </div>
-
-        <div class="whitespace"></div>
-        <div class="whitespace"></div>
-
-        <!-- <div class="row">
-          <div class="col-lg-6"></div>
-
-          <div class="col-lg-5 project project-4 hovereffect wow fadeInUp">
-            <div class="overlay">
-              <h2></h2>
-              <p class="set1">
-                  <a href="#">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </a>
-                  <a href="#">
-                    <ion-icon name="code-working"></ion-icon>
-                  </a>
-              </p>
-              <hr>
-              <hr>
-              <p class="set2">
-                  <a href="#">
-                    <ion-icon name="eye"></ion-icon>
-                  </a>
-                  <a href="#">
-                    <ion-icon name="add-circle"></ion-icon>
-                  </a>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-1"></div>
-        </div> -->
-
-        <div class="row">
-          <div class="col-lg-2"></div>
-          <div id="extra-projects-container" class="col-lg-8">
-            <h2>Other noteworthy projects</h2>
-            <div id="projects-cards-container">
-              <div class="project-card">
-                <div class="project-card-icons">
-                  <i class="far fa-folder-open"></i>
-                  <div class="project-card-links">
-                    <a target='_blank' rel="noopener noreferrer" href="https://github.com/AlexCsanyi/bookshelf">
-                      <i class="fab fa-github"></i>
-                    </a>
-                    <a target='_blank' rel="noopener noreferrer" href="https://bookshelf-fifth.herokuapp.com/">
-                      <i class="fas fa-external-link-alt"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="project-card-content">
-                  <h4>Bookshelf</h4>
-                  <p>
-                    A small app running on Heroku to store details of books I read. Books can be added, edited, deleted.
-                  </p>
-                </div>
-                <div class="project-card-footer">
-                  <ul class="project-card-footer-skills">
-                    <li>MongoDB</li>
-                    <li>Express</li>
-                    <li>React</li>
-                    <li>NodeJS</li>
-                  </ul>
-                </div>
-              </div>
-               <div class="project-card">
-                <div class="project-card-icons">
-                  <i class="far fa-folder-open"></i>
-                  <div class="project-card-links">
-                    <a target='_blank' rel="noopener noreferrer" href="https://github.com/AlexCsanyi/toDoApp">
-                      <i class="fab fa-github"></i>
-                    </a>
-                    <a target='_blank' rel="noopener noreferrer" href="https://projournal.netlify.com/">
-                      <i class="fas fa-external-link-alt"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="project-card-content">
-                  <h4>Pro Journal</h4>
-                  <p>
-                     Measure productivity, the data is stored in cache using TaffyDB. Record ToDos, use the pomodoro timer and your activity will be recorded on charts.
-                  </p>
-                </div>
-                <div class="project-card-footer">
-                  <ul class="project-card-footer-skills">
-                    <li><a href="http://taffydb.com/" target="_blank" rel="noopener noreferrer">TaffyDB</a></li>
-                    <li>
-                      <a href="https://www.chartjs.org/" target="_blank" rel="noopener noreferrer">ChartJS</a>
-                    </li>
-                    <li>Grid</li>
-                  </ul>
-                </div>
-              </div>
-               <div class="project-card">
-                <div class="project-card-icons">
-                  <i class="far fa-folder-open"></i>
-                  <div class="project-card-links">
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/AlexCsanyi/SURF">
-                    <i class="fab fa-github"></i>
-                  </a>
-                  <a target="_blank" rel="noopener noreferrer" href="https://surfandmore.netlify.com/">
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                  </div>
-                </div>
-                <div class="project-card-content">
-                  <h4>SURF</h4>
-                  <p>
-                    Responsive, static, clean landing page design. Wrote my own smooth scroll in vanilla JS.
-                  </p>
-                </div>
-                <div class="project-card-footer">
-                  <ul class="project-card-footer-skills">
-                    <li>Sass</li>
-                    <li>Flexbox</li>
-                    <li>Grid</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-2"></div>
-        </div>
-
-        <div class="whitespace"></div>
-      </div>
-      <!-- Projects Ends Here -->
-
-      <div id="take-me-here-for-contact" class="whitespace"></div>
-
-      <!-- Contact Form Starts Here -->
-      <div class="container" id="contact-alex-csanyi">
-        <div class="row">
-          <div class="col-lg-12">
-            <h3 class="wow fadeInUp" id="contact-form-header">Say Hello</h3>
-        
-            <form name="contact-form" id="contact-form" netlify method="POST" data-netlify="true">
-              <ul>
-                <li>
-                  <label class="wow fadeInUp" for="contact-name">Name:</label>
-                  <div class="textarea">
-                    <input type="text" name="contact-name" id="contact-name" required>
-                  </div>
-                </li>
-                <li>
-                  <label class="wow fadeInUp" for="contact-email">email:</label>
-                  <div class="textarea">
-                    <input type="email" name="contact-email" id="contact-email" required>
-                  </div>
-                </li>
-                <li>
-                  <label class="wow fadeInUp" for="contact-message">Message:</label>
-                  <div class="textarea">
-                    <textarea 
-                      type="text" 
-                      name="contact-message" 
-                      id="contact-message" 
-                      rows="6" 
-                      required></textarea>
-                  </div>
-                </li>
-              </ul>
-              <button 
-                type="submit" 
-                name="contact-submit" 
-                id="contact-submit" 
-                class="send wow fadeInUp">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- Contact Form Ends Here -->
-
-      <div class="whitespace"></div>
-
-      <!-- Footer Starts Here -->
-      <footer>
-        <div class="container">
-          <br><br>
-
-          <div class="collab">
-            <div class="row">
-              <div class="col-lg-12">
-                <p class="wow fadeInUp">You can download my CV or connect with me if you want to get in touch</p>
-              </div>
-            </div>
-          </div>
-
-          <br>
-
-          <div class="hr">
-            <div class="row"></div>
-          </div>
-
-          <br><br>
-
-          <div class="info">
-            <div class="row">
-
-              <div class="col-lg-4" id="personal">
-                <p class="wow fadeInUp">Download CV</p>
-                <h4 class="wow fadeInUp" data-wow-delay="0.2s" >
-                  <a href="./misc_assets/Alex Csanyi CV 2019.pdf" download="" target="_blank">
-                    <ion-icon id="download-cv-icon" name="cloud-download"></ion-icon>
-                  </a>
-                </h4>
-                <br><br>
-              </div>
-
-              <div class="col-lg-4" id="address">
-                <p class="wow fadeInUp">Find me</p>
-                <h4 class="wow fadeInUp" data-wow-delay="0.4s">53° 29' 2.2524'' N : 2° 14' 40.7184'' W</h4>
-                <br><br>
-              </div>
-
-              <div class="col-lg-4" id="media">
-                <p class="wow fadeInUp">follow me</p>
-
-                <ul>
-                  <li id="linkedin" class="wow fadeInUp" data-wow-delay="0.4s">
-                    <a href="https://www.linkedin.com/in/alex-csanyi/" target="_blank">li</a>
-                  </li>
-                  <li id="github" class="wow fadeInUp" data-wow-delay="0.6s">
-                    <a href="https://github.com/AlexCsanyi" target="_blank">gh</a>
-                  </li>
-                  <li id="twitter" class="wow fadeInUp" data-wow-delay="0.8s">
-                    <a href="https://twitter.com/AlexCsanyi" target="_blank">tw</a>
-                  </li>
-                </ul>
-
-                <br><br>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </footer>
-      <!-- Footer Ends Here -->
-    </div>
-
-    <!--WOW.js - to create scroll reveal animations-->
-    <script src="./js/wow.min.js"></script>
-    <script>
-      new WOW().init();
-    </script>
-    <!--jQuery - for smooth scroll and menu animation-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./js/navigation.js"></script>
-    <script src="./js/smoothScroll.js"></script>
-  </body>
+    </body>
 </html>
