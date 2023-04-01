@@ -97,7 +97,7 @@
 
                 <div class="whitespace"></div>
 
-                <small>fancy headline...</small>
+                <small>a few fancy headlines...</small>
                 <p class="txt--secondary-alt-color">
                     I seek truth and simplicity to make the complex clear.
                 </p>
@@ -277,24 +277,78 @@
                         ></textarea>
                     </div>
                     <div id="container-btn-submit">
-                        <button
-                            type="submit"
-                            class="cta-btn"
-                            cursor-class="overlay"
-                        >
+                        <a type="submit" id="btn-submit" cursor-class="overlay">
                             <span class="cta-btn__text">Send</span>
                             <span
                                 class="cta-btn__text cta-btn__foreground-text"
                             >
                                 Message
                             </span>
-                        </button>
+                        </a>
+                    </div>
+                    <div id="container-lds-submit" style="display: none">
+                        <div id="lds-submit" class="spinner">
+                            <div class="double-bounce1"></div>
+                            <div class="double-bounce2"></div>
+                        </div>
                     </div>
                 </form>
             </content>
+
+            <div class="whitespace"></div>
         </main>
 
-        <div class="whitespace"></div>
+        <div id="success" class="container-center" style="display: none">
+            <div id="success-cols">
+                <div class="msg-block">
+                    <span class="txt--stroke">THANK</span>
+                    <span class="txt--stroke" data-text="YOU">YOU</span>
+                </div>
+                <div class="msg-block">
+                    <span class="txt--stroke">YOUR MESSAGE HAS BEEN SENT</span>
+                </div>
+                <div class="msg-block">
+                    <span class="txt--stroke">I WILL GET BACK TO</span>
+                    <span class="txt--stroke" data-text="YOU">YOU</span>
+                    <span class="txt--stroke">ASAP</span>
+                </div>
+                <div class="btn--back">
+                    click here
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 10">
+                        <defs></defs>
+                        <path
+                            fill="#e2e2dd"
+                            d="M59.2,9.6V6.2h-58v-2c0,0,0,0,0,0h58V0.7L67,5.1L59.2,9.6z"
+                        ></path>
+                    </svg>
+                    to go back
+                </div>
+            </div>
+        </div>
+
+        <div id="error" class="container-center" style="display: none">
+            <div id="error-cols">
+                <div class="error-code">
+                    <span>5</span>
+                    <span>0</span>
+                    <span>0</span>
+                </div>
+                <div class="msg-block">
+                    <span>Sorry! Looks like something went wrong.</span>
+                </div>
+                <div class="btn--back">
+                    click here
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 10">
+                        <defs></defs>
+                        <path
+                            fill="#e2e2dd"
+                            d="M59.2,9.6V6.2h-58v-2c0,0,0,0,0,0h58V0.7L67,5.1L59.2,9.6z"
+                        ></path>
+                    </svg>
+                    to try again
+                </div>
+            </div>
+        </div>
 
         <footer id="footer">
             <div class="container">

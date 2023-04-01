@@ -1,3 +1,77 @@
+// form submit
+const main = document.getElementById("main");
+const containerSuccess = document.getElementById("success");
+const containerError = document.getElementById("error");
+
+const form = document.getElementById("contact-form");
+const containerBtnSubmit = document.getElementById("container-btn-submit");
+const btnSubmit = document.getElementById("btn-submit");
+const containerSpinner = document.getElementById("container-lds-submit");
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    // show spinner
+    containerBtnSubmit.style.display = "none";
+    containerSpinner.style.display = "block";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    main.style.display = "none";
+    containerSuccess.style.display = "block";
+    return;
+
+    // collect data
+    const formData = new FormData(event.target);
+
+    // send data
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+    })
+        .then(() => {
+            // reset submit btn
+            containerSpinner.style.display = "none";
+            containerBtnSubmit.style.display = "block";
+
+            // show the containerSuccess message
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            main.style.display = "none";
+            containerSuccess.style.display = "block";
+        })
+        .catch((error) => {
+            // show the error message
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            main.style.display = "none";
+            containerError.style.display = "block";
+        })
+        .finally(() => {
+            // reset submit btn
+            containerSpinner.style.display = "none";
+            containerBtnSubmit.style.display = "block";
+
+            // reset form
+            form.reset();
+        });
+};
+
+btnSubmit.addEventListener("click", handleSubmit);
+
+const handleBack = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    containerError.style.display = "none";
+    containerSuccess.style.display = "none";
+    main.style.display = "block";
+};
+
+const btnsBack = document.querySelectorAll(".btn--back");
+btnsBack.forEach((el) => el.addEventListener("click", handleBack));
+
 // progress bar
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
