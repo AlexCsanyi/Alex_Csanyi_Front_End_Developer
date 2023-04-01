@@ -20,11 +20,6 @@ const handleSubmit = (event) => {
     containerBtnSubmit.style.display = "none";
     containerSpinner.style.display = "block";
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    main.style.display = "none";
-    containerSuccess.style.display = "block";
-    return;
-
     // collect data
     const formData = new FormData(event.target);
 
@@ -35,10 +30,6 @@ const handleSubmit = (event) => {
         body: new URLSearchParams(formData).toString(),
     })
         .then(() => {
-            // reset submit btn
-            containerSpinner.style.display = "none";
-            containerBtnSubmit.style.display = "block";
-
             // show the containerSuccess message
             window.scrollTo({ top: 0, behavior: "smooth" });
             main.style.display = "none";
