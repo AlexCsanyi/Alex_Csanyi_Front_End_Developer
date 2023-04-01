@@ -21,7 +21,7 @@ const handleSubmit = (event) => {
     containerSpinner.style.display = "block";
 
     // collect data
-    const formData = new FormData(event.target);
+    const formData = new FormData(form);
 
     // send data
     fetch("/", {
