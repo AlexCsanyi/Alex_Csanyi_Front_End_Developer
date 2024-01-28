@@ -9,9 +9,9 @@
     "build": "parcel build index.html && shx cp sitemap.xml dist/ && shx cp robots.txt dist/"
   },
   "devDependencies": {
-    "@parcel/packager-xml": "^2.11.0",
-    "@parcel/transformer-xml": "^2.11.0",
-    "parcel": "^2.11.0",
+    "@parcel/packager-xml": "^2.8.3",
+    "@parcel/transformer-xml": "^2.8.3",
+    "parcel": "^2.8.3",
     "parcel-resolver-ignore": "^2.2.0",
     "shx": "^0.3.4"
   },
