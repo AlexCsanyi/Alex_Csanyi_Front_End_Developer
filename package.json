@@ -1,29 +1,34 @@
 {
-    "name": "alex_csanyi_software_developer_portfolio",
-    "version": "1.0.0",
-    "description": "Alex Csanyi Software Developer",
-    "scripts": {
-        "build": "parcel build index.html --public-url ./"
-    },
-    "devDependencies": {
-        "@parcel/packager-xml": "^2.8.3",
-        "@parcel/transformer-xml": "^2.8.3",
-        "parcel": "^2.8.3"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/AlexCsanyi/Alex_Csanyi_Front_End_Developer.git"
-    },
-    "keywords": [
-        "Software",
-        "Developer",
-        "Manchester",
-        "Javascript",
-        "PHP"
-    ],
-    "author": "Alex Csanyi",
-    "bugs": {
-        "url": "https://github.com/AlexCsanyi/Alex_Csanyi_Front_End_Developer/issues"
-    },
-    "homepage": "https://alexcsanyi.dev"
+  "name": "alex_csanyi_software_developer_portfolio",
+  "version": "1.0.0",
+  "description": "Alex Csanyi Software Developer",
+  "parcelIgnore": [
+    "sitemap.xml"
+  ],
+  "scripts": {
+    "build": "parcel build index.html && shx cp sitemap.xml dist/ && shx cp robots.txt dist/"
+  },
+  "devDependencies": {
+    "@parcel/packager-xml": "^2.11.0",
+    "@parcel/transformer-xml": "^2.11.0",
+    "parcel": "^2.11.0",
+    "parcel-resolver-ignore": "^2.2.0",
+    "shx": "^0.3.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexCsanyi/Alex_Csanyi_Front_End_Developer.git"
+  },
+  "keywords": [
+    "Software",
+    "Developer",
+    "Manchester",
+    "Javascript",
+    "PHP"
+  ],
+  "author": "Alex Csanyi",
+  "bugs": {
+    "url": "https://github.com/AlexCsanyi/Alex_Csanyi_Front_End_Developer/issues"
+  },
+  "homepage": "https://alexcsanyi.dev"
 }
