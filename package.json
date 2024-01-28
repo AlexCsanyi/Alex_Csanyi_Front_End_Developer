@@ -6,7 +6,7 @@
     "sitemap.xml"
   ],
   "scripts": {
-    "build": "parcel build index.html --public-url ./ && shx cp sitemap.xml dist/ && shx cp robots.txt dist/"
+    "build": "parcel build index.html 404.html --public-url ./ && shx cp sitemap.xml dist/ && shx cp robots.txt dist/"
   },
   "devDependencies": {
     "@parcel/optimizer-terser": "^2.11.0",
