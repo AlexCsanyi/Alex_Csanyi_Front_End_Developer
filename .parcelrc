@@ -3,5 +3,10 @@
   "resolvers": [
     "parcel-resolver-ignore",
     "..."
-  ]
+  ],
+  "optimizers": {
+    "*.js": [
+      "@parcel/optimizer-terser"
+    ]
+  }
 }

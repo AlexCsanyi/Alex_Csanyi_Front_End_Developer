@@ -9,6 +9,7 @@
     "build": "parcel build index.html --public-url ./ && shx cp sitemap.xml dist/ && shx cp robots.txt dist/"
   },
   "devDependencies": {
+    "@parcel/optimizer-terser": "^2.11.0",
     "@parcel/packager-xml": "^2.11.0",
     "@parcel/transformer-xml": "^2.11.0",
     "parcel": "^2.11.0",
