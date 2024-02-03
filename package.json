@@ -6,14 +6,29 @@
     "sitemap.xml"
   ],
   "scripts": {
-    "build": "parcel build index.html 404.html --public-url ./ && shx cp sitemap.xml dist/ && shx cp robots.txt dist/"
+    "build": "parcel build index.html 404.html --public-url ./ && shx cp sitemap.xml dist/ && shx cp robots.txt dist/",
+    "format": "prettier --write 'src/**/*.{html,js,css}'"
+  },
+  "lint-staged": {
+    "*.{js,css,html}": "prettier --write",
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
     "@parcel/optimizer-terser": "^2.11.0",
     "@parcel/packager-xml": "^2.11.0",
     "@parcel/transformer-xml": "^2.11.0",
+    "husky": "^9.0.10",
+    "lint-staged": "^15.2.1",
     "parcel": "^2.11.0",
     "parcel-resolver-ignore": "^2.2.0",
+    "prettier": "^3.2.4",
     "shx": "^0.3.4"
   },
   "repository": {

@@ -119,7 +119,8 @@ window.addEventListener('mousemove', updateCursorCoordinates);
 const updateCursorPosition = () => {
   cursorPosition.x += (mouse.x - cursorPosition.x) * cursorSpeed;
   cursorPosition.y += (mouse.y - cursorPosition.y) * cursorSpeed;
-  cursor.style.transform = 'translate3d(' + cursorPosition.x + 'px, ' + cursorPosition.y + 'px, 0)';
+  cursor.style.transform =
+    'translate3d(' + cursorPosition.x + 'px, ' + cursorPosition.y + 'px, 0)';
 };
 
 function loop() {
@@ -191,8 +192,10 @@ class MagneticObject {
   }
 
   render() {
-    const boundclientRectX = this.boundingClientRect.left + this.boundingClientRect.width / 2;
-    const boundclientRectY = this.boundingClientRect.top + this.boundingClientRect.height / 2;
+    const boundclientRectX =
+      this.boundingClientRect.left + this.boundingClientRect.width / 2;
+    const boundclientRectY =
+      this.boundingClientRect.top + this.boundingClientRect.height / 2;
 
     const distanceFromMouseToCenter = calculateDistance(
       mouseMagneticPosition.x,
