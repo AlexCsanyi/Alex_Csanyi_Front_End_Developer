@@ -384,11 +384,10 @@ body {
   margin-bottom: 1em;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #fff;
+  color: var(--clr-gray);
   position: absolute;
   left: 0;
   top: 3.4em;
-  opacity: 0.33;
 }
 
 .form-col label {
@@ -397,7 +396,7 @@ body {
   width: 100%;
   display: block;
   margin-bottom: 0;
-  color: #fff;
+  color: var(--clr-light);
   font-weight: 450;
   padding-top: 1.28em;
   transition: all 0.2s ease-in-out;
@@ -435,6 +434,15 @@ input.field:focus {
   outline-offset: 0px;
   border-radius: 0;
   border: 0;
+}
+
+::placeholder {
+  color: var(--clr-gray);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: var(--clr-gray);
 }
 
 textarea.field {
