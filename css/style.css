@@ -374,7 +374,7 @@ body {
   border-top: 1px solid var(--clr-gray);
 }
 
-.form-col h5 {
+.form-col .form-field-counter {
   padding: 0;
   margin: 0;
   font-weight: 450;
