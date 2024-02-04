@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "Alex Csanyi Software Developer",
   "parcelIgnore": [
-    "sitemap.xml"
+    "sitemap.xml",
+    "alex_csanyi_software_developer_manchester.jpg"
   ],
   "scripts": {
     "clean:dist": "rimraf dist",
-    "build": "npm run clean:dist && parcel build index.html 404.html --public-url ./ && shx cp sitemap.xml dist/ && shx cp robots.txt dist/",
+    "build": "npm run clean:dist && parcel build index.html 404.html --public-url ./ && shx cp sitemap.xml dist/ && shx cp robots.txt dist/ && shx cp ./public/alex_csanyi_software_developer_manchester.jpg dist/public/",
     "format": "prettier --write 'src/**/*.{html,js,css}'",
     "lint": "eslint . --fix"
   },
