@@ -7,8 +7,7 @@
   ],
   "scripts": {
     "clean:dist": "rimraf dist",
-    "clean:index": "rimraf index.html",
-    "build": "node extract-critical-css.mjs && npm run clean:dist && parcel build index.html 404.html --public-url ./ && npm run clean:index && shx cp sitemap.xml dist/ && shx cp robots.txt dist/",
+    "build": "npm run clean:dist && parcel build index.html 404.html --public-url ./ && shx cp sitemap.xml dist/ && shx cp robots.txt dist/",
     "format": "prettier --write 'src/**/*.{html,js,css}'",
     "lint": "eslint . --fix"
   },
@@ -38,7 +37,6 @@
     "lint-staged": "^15.2.1",
     "parcel": "^2.11.0",
     "parcel-resolver-ignore": "^2.2.0",
-    "postcss": "^8.4.33",
     "prettier": "^3.2.4",
     "rimraf": "^5.0.5",
     "shx": "^0.3.4"
@@ -58,9 +56,5 @@
   "bugs": {
     "url": "https://github.com/AlexCsanyi/Alex_Csanyi_Front_End_Developer/issues"
   },
-  "homepage": "https://alexcsanyi.dev",
-  "dependencies": {
-    "critical": "^7.1.0",
-    "postcss-merge-rules": "^6.0.3"
-  }
+  "homepage": "https://alexcsanyi.dev"
 }
