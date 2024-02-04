@@ -1,9 +1,9 @@
 /* ----- Variables ----- */
 :root {
-  --clr-primary: rgba(24, 24, 30, 1);
+  --clr-primary: #0a0a0a;
   --clr-light: #dec79b;
-  --clr-gray: rgba(255, 255, 255, 0.562);
-  --clr-yellow: rgba(250, 201, 33, 1);
+  --clr-gray: #f1f1ff;
+  --clr-yellow: #fac921;
   --clr-accent: #f33a3a;
   --font-primary: 'Roboto Mono', monospace;
   --font-secondary: 'Montserrat', sans-serif;
@@ -308,11 +308,11 @@ body {
   padding-top: 6px;
 }
 
-#personal h4 {
+#footer-download-cv-container h4 {
   padding-top: 6px;
 }
 
-#personal h4 a:hover {
+#footer-download-cv-container h4 a:hover {
   text-decoration: none;
 }
 
@@ -326,7 +326,7 @@ body {
 
 @media (max-width: 1150px) {
   .collab,
-  #personal,
+  #footer-download-cv-container,
   #media,
   #address {
     padding-top: 5%;
